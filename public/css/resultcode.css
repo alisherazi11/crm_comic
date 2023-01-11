@@ -1,0 +1,229 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+
+}
+:root {
+    --bordercolor: rgb(119, 136, 153, 0.3);
+    --fontsize: 13px;
+    --iconsize: 15px;
+    --fontsizebtn: 12px;
+    --headingsize: 16px;
+    --redius: 10px;
+    --btn-bg: rgb(240, 248, 255, 0.6);
+    --blue-color: #51a2d7;
+  }
+  
+h1, h2 , h3 , h4 , h5 , h6 , p{
+    margin-bottom: 0px !important;
+}
+.resultCodeSideBar{
+    width: 300px;
+    height:100%;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 15px;
+    /* position: fixed;
+    top: 72px;
+    left:  15px  ; */
+    border: 1px solid var(--bordercolor);
+
+    transition: .4s;
+    z-index: 2;
+}
+.resultCodeSideBarHeader{
+    border-top-left-radius:10px ;
+    border-top-right-radius:10px ;
+    display: flex;
+    background-color: #51a2d7;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+}
+.resultCodeSideBarHeader i{
+    font-size: 20px;
+    color: #1073B9;
+}
+.resultCodeSideBarHeader h5{
+    color: #fff;
+    font-weight: 900;
+    font-size: 17px;
+    
+}
+.sideBraGrayBox{
+
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 9px ;
+    padding-right: 0px !important  ;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid  var(--bordercolor);
+
+}
+.sideBraGrayBox button{
+
+    width: 80px !important;
+    
+    font-size: 10px !important;
+    display: flex;
+    margin: 0px;
+    margin-right: 6px;
+    justify-content: center;
+    
+}
+.wrong{
+    font-size: 10px;
+    padding: 6px;
+    background-color: #636263;
+    color: #fff;
+    border: none;
+}
+.sideBraGrayBox p{
+    color: gray;
+    font-size: 12px !important;
+
+    max-width: 170px;
+    
+}
+
+.tab-bar{
+    width: 100%;
+    background-color: #51a2d7;
+    
+
+    padding: 10px;
+}
+.menu{
+    color: #fff;
+    font-size: 18px;
+    
+}
+.leftresultcideBox{
+    width:90% !important;
+    
+}
+.resultcodemain{
+    
+    height: 90vh;
+}
+.leftspacing{
+    /* padding-left: 320px; */
+    border: 1px solid var(--bordercolor);
+    border-radius: 10px;
+    height:100%;
+    
+    margin: 12px;
+    margin-top: 15px;
+    background-color: #fff;
+    width: 99.5%;
+    
+}
+.tab-bar h4{
+    color: #fff;
+    font-weight: 400;
+    font-size: 15px;
+}
+.sendbtn {
+    border: none !important;
+    
+    background-color: #017acc !important;
+    border: none !important;
+    
+    font-size: 13px;
+    background-color: #51a2d7;
+    color: #fff;
+  
+    padding: 8px 15px;
+    border-radius: 4px;
+    background-color: #158903 !important;
+  
+}
+.resultTextBox textarea{
+    min-height: 120px !important;
+    width: 100%;
+}
+  .resultTextBox{
+    max-width: 30%;
+    margin: 10px;
+    padding: 10px;
+    
+  }
+  .contractPreview{
+    background-color: #51a2d7;
+    padding: 9px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+  }
+  .contractPreview p{
+
+    padding-left: 315px;
+
+    font-size: 11px;
+    color: #fff;
+    
+    
+  }
+
+.tab-bar H4 I{
+    margin-right: 10px;
+}
+#toggleHandle{
+    
+    /* visibility: hidden; */
+    color: #fff !important;
+    font-size: 25px;
+}
+#adminmenuicon{
+    visibility: hidden;
+}
+  @media only screen and (max-width: 1200px){
+    .resultTextBox{
+        max-width: 90%;
+        padding: 10px;
+      }
+      #adminmenuicon{
+        visibility: visible;
+
+    }
+
+  }
+  @media only screen and (max-width: 800px){
+	/*Big smartphones [426px -> 600px]*/
+    .resultCodeSideBar{
+        left: -100% ; 
+        position: fixed;
+        top: 44px;
+        border-radius: 0px !important;
+
+    }
+    .leftresultcideBox{
+        width: 100% !important   ;
+
+    }
+    .resultCodeSideBarHeader{
+        border-radius: 0px !important  ;
+    }
+    .leftspacing{
+        margin: 10px 0px !important;
+        margin-left: 5px !important;
+    }
+    #toggleHandle{
+        visibility: visible;
+
+    }
+
+    .contractPreview p{
+
+        padding-left: 0px;
+    }    
+    .tab-bar h4 {
+        font-size: 12px;
+    }
+}

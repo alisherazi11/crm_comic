@@ -1,0 +1,109 @@
+.actimeproject{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.nav-link.active{
+    border: 1px solid rgb(211, 211, 211 , 0.2) !important;
+    padding: 10px 40px !important;
+    background-color: #FFF  !important;
+    border-bottom: none !important;
+    border-top-left-radius: 10px !important;
+    color: #000 !important;
+    border-top-right-radius: 10px !important;
+    font-weight: 700 !important;
+
+}
+.Projecttabs{
+    color: #000 !important;
+    font-weight: 700 !important;
+}
+.Projecttabs:visited{
+    color: #000 !important;
+}
+.ProjectbleHeader{
+    background-color: rgb(211, 211, 211 , 0.3) !important;
+
+    
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    
+}
+.projectTable th{
+    font-weight: 600;
+} 
+.projectTable tr{
+    padding: 0px 20px !important;
+}
+.projectTable tr td{
+
+    border: 1px solid rgb(211, 211, 211 , 0.3)!important;
+    border-collapse: collapse !important;
+    
+
+}
+#ProjectName{
+    color:black;
+}
+.projectTable tr:nth-child(even){
+    background-color: #f9fafb !important;
+
+}
+
+.projectCircle i ,.fa-circle-xmark{
+    font-size: 20px;
+    color: gray !important;
+}
+.settingimg{
+    width: 21px;
+}
+.ProjectTable{
+    width: 100% !important;
+}
+.projectTable table{
+    width:  100% !important;
+    
+}
+.Projectsearch{
+    width: 340px !important;
+}
+@media only screen and (max-width: 820px){
+    .projectTable table{
+        width:  800px !important;
+    }
+
+}
+@media only screen and (max-width: 600px){
+
+    .projectCircle i{
+        font-size: 16px;
+    }
+    .Projectsearch{
+        width: 60% !important;
+    }
+    .settingimg{
+        width: 16px;
+    }
+    .addbtn{
+        margin: 0px ;
+
+    }
+	
+}
+.modalCheckBox{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(211, 211, 211 , 0.3);
+    border-radius: 10px;
+
+}
+.modalCheckBox input{
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+}
+.closeicon{
+    font-size: 20px;
+    color: gray !important;
+}

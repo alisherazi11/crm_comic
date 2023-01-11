@@ -1,0 +1,85 @@
+:root {
+  --bordercolor: rgb(119, 136, 153, 0.3);
+  --lightbordercolor: rgb(119, 136, 153, 0.2);
+  --fontsize: 13px;
+
+  --iconsize: 15px;
+
+  --fontsizebtn: 12px;
+  --headingsize: 19px;
+  --redius: 10px;
+  --btn-bg: rgb(240, 248, 255, 0.6);
+  --blue-color: #51a2d7;
+}
+
+.settingwarpper {
+  background-color: transparent;
+  height: 100vh;
+}
+.frist-col{
+    
+    height: 100%;
+}
+.bg-white {
+  background-color: #fff;
+}
+.settingContainer {
+  padding: 20px;
+}
+.comapnyprofile {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+.companyDetails {
+    padding: 20px;
+    background-color: #fff;
+  /* border: 1px solid var(--bordercolor); */
+}
+.roundedBox{
+    background-color: white;
+    padding: 10px;
+    height: 100%;
+}
+.Settingrow{
+    height: 100%;
+}
+.compamydetailsbox {
+  border: 1px solid var(--lightbordercolor);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.compamydetailsbox p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: gray;
+}
+.compamydetailsbox ion-icon {
+  font-size: 13px;
+}
+.compamydetailsbox img {
+  width: 10px;
+}
+.companyregister {
+  display: flex;
+  gap: 60px;
+}
+
+P {
+  font-size: 11px !important;
+}
+.settingsidebar{
+
+    padding: 10px;
+}
+.settingsidebar .adminsidebar{
+    margin: 0px !important;
+    height: 100% !important;
+}
+.settigBox{
+    background-color: transparent !important;
+    border: none !important;
+}

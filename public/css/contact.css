@@ -1,0 +1,224 @@
+.tableWrapper {
+    width: 100%;
+  }
+  .tableContainer{
+    /* background-color: #F1F4F9; */
+    padding: 20px;
+    height: 94vh;
+  }
+  .tableWrapper{
+    overflow: scroll;
+    height:80vh !important;
+    border-radius: 8px;
+  }
+  .tableWrapper table {
+    
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 10px;
+    
+    
+    
+    background-color: #fff;
+  }
+  
+  .tableWrapper table tr th {
+    font-weight: 800 ;
+    white-space:  nowrap;
+    /* padding: 10px 30px; */
+
+    font-size: 15px  !important;
+  }
+  .tableWrapper table tr {
+    
+   
+    width: 100% !important;
+  }
+  .tableWrapper table tr td p{
+    font-size: 12px !important;
+
+  }
+  .tableWrapper table tr td:first-child ,.tableWrapper table tr th:first-child  {
+    padding: 10px 10px;
+    text-align: center;
+  }
+  .tableWrapper table tr td:last-child ,.tableWrapper table tr th:last-child {
+    /* padding: 10px 10px; */
+  }
+  .tableWrapper table tr td {
+    padding: 15px 5px;
+    white-space: nowrap;
+    font-size: 15px;
+    
+
+  }
+  td{
+    text-align: center;
+  }
+  .tableWrapper table tr th {
+    padding: 25px 5px;
+    font-size: 12px;
+    
+
+  }
+  table tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  .tabelHeader  {
+    
+    
+
+    background-color: #FCFEFD !important;
+  }
+  tbody tr {
+    border-bottom: 1px solid  rgb(119, 136, 153, 0.3) !important;
+
+    
+    
+  }
+  .tableContainer tr:nth-child(1) {
+    /* border-bottom: 2px solid  rgb(119, 136, 153, 0.3) !important; */
+
+    
+    
+  }
+
+  thead tr{
+    border-bottom: 2px solid lightgray !important;
+  }
+
+  @media only screen and (max-width: 740px) {
+
+
+    .tableWrapper table tr td {
+      font-size: 12px;
+    }
+  }
+  
+  @media only screen and (max-width: 534px) {
+    .tableWrapper table tr td {
+      font-size: 10px;
+    }
+    .css-tc1z5d {
+      padding: 10px !important;
+    }
+    .searchBox input {
+      max-width: 100px !important;
+    }
+    .userIcon{
+      font-size: 15px;
+    }
+  }
+  @media only screen and (max-width: 454px) {
+    .tableWrapper table tr td {
+      padding: 10px 5px;
+      padding-left: 1px;
+    }
+    .filterBox{
+      padding: 0px 0px !important;
+    }
+  }
+  @media only screen and (max-width: 376px) {
+    .tableContainer {
+      padding: 10px;
+    }
+  }
+  .tableProfile{
+    width: 30px;
+    height: 30px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px !important  ;
+
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50%;
+  }
+  .userName1{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .userName1 h5{
+    font-size: 13px;
+    color: #000 !important;
+    font-weight: 600;
+  }
+  .userName1 p{
+    font-size: 12px !important;
+    color: gray;
+  }
+  .call{
+    width: 20px;
+    height: 20px;
+    background-color: #4FD89A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+  }
+  .msg{
+    width: 20px;
+    height: 20px;
+    background-color:#8CA2F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+  }
+  .call ion-icon{
+    color: #fff;
+    font-size: 10px !important;
+  }
+  .msg ion-icon{
+    font-size: 10px !important;
+    color: #fff;
+  }
+  .user-contactNumber{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .agentCircle{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #DBBBB9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .agentCircle ion-icon{
+    color: #fff;
+    font-size: 12px;
+  }
+  .agentTd{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tdicon {
+
+    display: flex;
+    gap: 13px;
+
+  }
+
+  .tdicon i{
+    font-size: 16px;
+    color: gray !important;
+  }
+  .projectTabs{
+    position: relative;
+  }
+  .rightbtn{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+  }

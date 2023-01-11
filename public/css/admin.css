@@ -1,0 +1,107 @@
+
+.adminsidebar ul li{
+    
+    margin: 20px;
+    list-style: none;
+}
+
+.adminsidebar ul li img{
+    width: 18px;
+    margin-right: 20px;
+}
+
+.adminsidebar ul li a ,.adminsidebar ul li p{
+    color: gray;
+    font-weight: 700;
+    
+}
+.adminsidebar{
+    background-color: #fff;
+    width: 240px;
+}
+.barmyChart{
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.anychart-credits {
+    display: none;
+}
+.reportsmallBox{
+    min-height: 140px;
+    width: 100%;
+
+
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #e8ecf0;
+    box-shadow:  0px 0px 3px 0px #e8ecf0;
+    padding: 20px;
+    border-bottom: 3px solid rgb(128, 128, 128 , 0.4) ;
+    margin: 10px;
+}
+.reportsmallBox p{
+    color: #9db0be;
+    text-transform: uppercase;
+    
+    font-size: 12px !important;
+
+    
+}
+.zero{
+    color: gray !important;
+    margin-top: 6px;
+    font-size: 25px !important;
+}
+.adminBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    
+}
+#container{
+    width: 300px;
+    height: 300px;
+
+}
+#chart_div{
+
+    height: 90% !important;
+    width: 90% !important;
+    
+}
+.chartbox{
+    column-gap: 20px;
+    display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin: 20px 0px;
+  
+}
+
+.admintable{
+    height: 31vh !important;
+}
+.recent{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+
+@media only screen and (max-width: 1200px){
+    /*Tablets [601px -> 1200px]*/
+    .chartbox{
+        column-gap: 20px;
+        display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          row-gap: 20px;
+          margin: 20px 0px;
+      
+    }
+    .adminview{
+        height: auto    ;
+    }
+}

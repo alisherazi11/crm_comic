@@ -1,0 +1,258 @@
+:root {
+  --bordercolor: rgb(119, 136, 153, 0.3);
+  --fontsize: 13px;
+  --iconsize: 15px;
+  --fontsizebtn: 12px;
+  --headingsize: 19px;
+  --redius: 10px;
+  --btn-bg: rgb(240, 248, 255, 0.6);
+  --blue-color: #51a2d7;
+}
+.dealContainer {
+  /* height: 100vh; */
+
+  background-color: #f1f4f9;
+  padding: 20px;
+  /* padding-bottom: 60px; */
+}
+.dealcarheader {
+  width: 100%;
+  border-top: 6px solid red;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.dealcard {
+  width: 370px;
+  border-radius: 4px;
+  margin: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.dealcarheader h3 {
+  font-size: 22px;
+}
+.dealcarheader p {
+  font-size: 17px;
+  color: rgb(157, 176, 190);
+  margin-top: 5px;
+  word-spacing: 2px;
+  letter-spacing: 0.3px;
+}
+
+.green {
+  color: rgb(65, 184, 140) !important;
+}
+.dealsmalcard {
+  background-color: #fff;
+  border: 1px solid rgb(211, 211, 211, 0.9);
+  border-radius: 6px;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 10px 20px;
+  text-align: center;
+}
+.dealcardbody {
+  height: 69vh;
+  overflow-y: scroll;
+  background-color: #f8f9fb;
+}
+.dealsmalcard h3 {
+  font-size: 17px;
+  padding-bottom: 3px;
+}
+
+.dealcardbody p {
+  color: rgb(0, 0, 0, 0.7);
+
+  line-height: 30px;
+
+  font-size: 15px;
+}
+.cadttext {
+}
+.showbtn {
+  border: none;
+  background-color: rgb(211, 211, 211, 0.2);
+  border: 1px solid black;
+  margin-bottom: 7px;
+  color: black;
+  font-weight: 200;
+  font-size: 14px;
+  padding: 3px 20px;
+  border-radius: 100px;
+}
+.nodela {
+  font-size: 17px;
+  padding-top: 100px;
+  text-align: center;
+}
+.blue {
+  color: #40a2d9;
+}
+.dealCardBox {
+  display: flex;
+padding-top: 30px;
+  width: 2500px;
+}
+.scrolldealBox {
+  overflow-x: scroll;
+  
+}
+
+.borderyellow {
+  border-top: 6px solid yellow;
+}
+.borderorangle {
+  border-top: 6px solid orange;
+}
+.borderblue {
+  border-top: 6px solid #40a2d9;
+}
+.cancel2 {
+  background-color: transparent;
+}
+.popinput {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.popinput input {
+  width: 250px;
+}
+.fa-circle-check {
+  color: #58d2a0;
+}
+.fa-circle-xmark {
+  color: #f39291;
+}
+.buyerBox a {
+    font-size: 13px;
+
+  color: #a1cde4;
+}
+.buyerBox i {
+  color: rgb(128, 128, 128, 0.8);
+  font-size: 13px;
+}
+.anchor {
+    font-size: var(--fontsize);
+
+  color: #a1cde4;
+}
+.redDot {
+  width: 10px;
+  height: 10px;
+  background-color: #f39291;
+  border-radius: 50%;
+  margin-top: -4px;
+}
+.buyerBox {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding-top: 6px;
+}
+.h6 {
+  color: gray;
+  font-weight: 800;
+  font-size: 12px !important;
+}
+
+.addprice {
+  line-height: 50px;
+}
+.gridRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 25px 0px;
+}
+.addAgent a {
+  line-height: 15px;
+}
+.grayplus {
+  height: 30px;
+  width: 30px;
+  background-color: #d0dae0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0, 0.6);
+
+  vertical-align: middle;
+}
+.grayplus i {
+  font-size: 12px !important;
+  margin-top: 2px;
+}
+.pink {
+  background-color: #dcb8b8;
+  color: #fff;
+}
+.circwIcon {
+  display: flex;
+  gap: 12px;
+}
+.people h6 {
+  margin-bottom: 15px !important;
+}
+.addpeople{
+    display: flex;
+    gap:70px;
+}
+.adddecsription{
+    line-height: 50px;
+    margin-top: 30px;
+}
+.modalfooterbg{
+    background-color: #FCFEFD;
+}
+@media only screen and (max-width: 576px){
+	/*Big smartphones [426px -> 600px]*/
+    .h6{
+        font-size: 10px  !important;
+    }
+    .anchor {
+        font-size: 10px;
+    }    
+    .buyerBox a {
+        font-size: 10px;
+    }
+    .CreateModalBtn{
+        font-size: 10px !important;
+        padding: 9px 20px !important;
+    }
+    .cancel2{
+        font-size: 12px  !important;
+    }
+    .popinput input {
+        width: 200px;
+      }
+}
+#inputbox1{
+  display: none;
+  
+}
+#inputbox2{
+  display: none;
+  
+}
+.add-prize-input{
+  display: flex;
+  
+  align-items: center;
+  margin-top: 6px;
+  
+}
+
+.add-prize-input input{
+  width: 75%;
+}

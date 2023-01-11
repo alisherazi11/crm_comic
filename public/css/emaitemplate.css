@@ -1,0 +1,259 @@
+:root {
+  --lightgray: rgba(234, 234, 234, 0.1);
+  --gray: rgb(128, 128, 128, 0.1);
+  --bordercolor: rgb(119, 136, 153, 0.3);
+  --fontsize: 13px;
+  
+}
+
+.emailtemplateContainer {
+  padding: 20px;
+}
+.email-wrapper {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--bordercolor);
+}
+.contentBox {
+  max-width: 80%;
+  background-color: var(--lightgray);
+  padding: 10px;
+
+  border-radius: 10px;
+  padding: 10px;
+}
+.contentBoxselect {
+  max-width: 80%;
+  background-color: rgb(128, 128, 128, 0.1);
+  margin: 10px 0px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px;
+
+  border-radius: 10px;
+  padding: 10px;
+}
+.mangeSel {
+  background-color: rgb(128, 128, 128, 0.1);
+  padding: 20px;
+
+  border-radius: 10px;
+}
+.blankemail select {
+  width: 500px !important;
+}
+.blankemail {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.setcontact {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  align-items: center;
+}
+
+.catgroy {
+  border-bottom: 1px dashed rgb(128, 128, 128, 0.6);
+
+  padding: 10px 0px;
+}
+.massageIconBox {
+  background-color: rgb(128, 128, 128, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+.catwrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.catwrapper select {
+  width: 500px;
+}
+.status {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+  gap: 30px;
+}
+.insetrvariable {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  flex-wrap: wrap;
+}
+.insetrvariable button {
+  width: 250px !important;
+}
+
+.htmlBody {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.msgBox {
+  background-color: #fff;
+  margin: 10px;
+  padding: 20px 0px;
+  border-radius: 10px;
+}
+.threeIcon {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-left: 1px solid lightgray;
+  /* border-right: 1px solid lightgray; */
+  padding: 8px 14px;
+}
+.threeIcon ion-icon{
+  font-size:20px !important;
+}
+.Formats {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: gray;
+}
+.threeIcon img {
+  width: 18px ;
+}
+.italicPic{
+  width: 15px !important;
+  margin-top: -2px;
+}
+.massageHeader {
+  padding: 0px 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Verdanadropdown {
+  width: 140px;
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+.fa-chevron-left {
+  margin-top: -1px;
+}
+.left {
+  transform: rotate(30deg);
+}
+.threeIconi {
+}
+.fa-chevron-left {
+}
+.fa-chevron-left,
+.fa-chevron-left {
+  font-size: 14px;
+}
+.borderx {
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
+.Verdanadropdown::after {
+  left: 0px !important;
+}
+.massageHeadersencondrwo {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--bordercolor);
+}
+.massageBody {
+  border-bottom: 1px solid var(--bordercolor);
+  width: 100%;
+}
+.massageBody textarea {
+  overflow-x: scroll;
+  border: none !important;
+
+  height: 300px;
+}
+.plaintextares textarea {
+  border: none !important;
+}
+.docuBox {
+  border: 1px solid var(--bordercolor);
+  width: 260px;
+  height: 220px;
+  background-color: #fff;
+  overflow-x: scroll;
+}
+.arrowBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrowBox button {
+  width: 100px;
+  margin: 10px 0px;
+}
+.attachmentBox {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  border-bottom: 1px dashed var(--bordercolor);
+  margin: 10px 0px;
+  align-items: center;
+}
+.notetext {
+  max-width: 900px;
+  margin: 10px 0px;
+}
+
+.blue {
+  color: #51a2d7;
+}
+
+@media only screen and (max-width: 1100px) {
+  /*Big smartphones [426px -> 600px]*/
+  .blankemail select,
+  .catwrapper select {
+    width: 100% !important;
+  }
+  .insetrvariable {
+    width: 100%;
+  }
+  .attachmentBox {
+    width: 100%;
+  }
+  .arrowBox {
+    margin: 0px 10px;
+  }
+  .arrowBox button {
+    width: 80px;
+  }
+
+@media only screen and (max-width: 768px) {
+  .massageIconBox {
+  padding: 10px;
+  }
+  .emailtemplateContainer{
+    padding: 10px;
+  }
+
+  h5{
+    font-size: 15px !important;
+  }
+}
+
+}
+
+.scrollheader {
+  width: 800px;
+  overflow-x: scroll;
+}
+.headerscrollable {
+  overflow-x: scroll;
+}
