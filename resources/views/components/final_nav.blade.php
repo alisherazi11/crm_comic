@@ -29,8 +29,17 @@
                 <a style="color:black; margin-left:20px; {{(request()->is('newdashboard')) ? 'background-color: #2980B9; color:white; padding: 10px; border-radius:10px;' : ''}}" href="{{url('newdashboard')}}">Dashboard</a>
 
                 @if(Session::has('pid'))
-                <a style="color:black; margin-left:20px; {{(request()->is('admin/contacts')) ? 'background-color: #2980B9; color:white; padding: 10px; border-radius:10px;' : ''}}" href="/admin/contacts"><img src="${url}/contact.png" alt=""><span class="menu-title"><span class="menu-title">My Contacts</span></a>
+                <a style="color:black; margin-left:20px; {{(request()->is('admin/contacts')) ? 'background-color: #2980B9; color:white; padding: 10px; border-radius:10px;' : ''}}" href="/admin/contacts"><span class="menu-title"><span class="menu-title">My Contacts</span></a>
+                @php
+                    $project_name = '';
+                    $project = DB::table('projects')->where("id", Session::get('pid'))->first();
+                    if($project){
+                        $project_name = '<span class="btn btn-sm btn-success" style="margin-left:20px; cursor: unset;">'.$project->title.'</span>';
+                    }
+                @endphp
+                {!! $project_name !!}
                 @endif
+
             </li>
         </ul>
         <div class="d-flex align-items-center">

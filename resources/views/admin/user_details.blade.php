@@ -8,10 +8,7 @@
     </head>
     <body>
         <x-projectnavbar/>
-        <div class="tableContainer pt-2" style="width:100%;">
-            <div class="justify-content-between mb-2 text-center">
-                <h3 id="ActiveUser" class="text-bold">Active Users</h3>
-            </div>
+        <div class="tableContainer">
             <nav>
                 <div class="nav nav-tabs projectTabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
@@ -22,12 +19,12 @@
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div id='example_wrapper' class="tab-pane fade show active pt-2" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="actimeproject" style="border-radius: 0px !important;">
                         <button data-toggle="modal" data-target="#addUserModal" class="btn btn-sm float-right mb-1"
                         style="background-color:#2980B9; color:white;">Add User
                         </button>
-                        <div class="tableWrapper projectTable" style="">
+                        <div class="tableWrapper projectTable" style="height: fit-content !important;">
                             <div class="table-content table-responsive">
                                 <table class="table table-borded table-bordered " id="table-list">
                                     <thead class="table">

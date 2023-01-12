@@ -311,7 +311,7 @@ class DashboardController extends Controller
         $data = User::where('role', '!=', 'admin')->get();
         $project = Project::where('status', 1)->get();
         $inactive = Project::where('status', 0)->get();
-        return view('admin/user_details', compact('data', 'project', 'inactive'));
+        return view('admin.user_details', compact('data', 'project', 'inactive'));
     }
 
     public function newdashboard(Request $request)
