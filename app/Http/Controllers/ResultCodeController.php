@@ -117,7 +117,7 @@ class ResultCodeController extends Controller
         $agents = Agent::all();
         $projects = Project::all();
         $deals = Deal::all();
-        $resultcodedata = Rescultcode::all();
+        $resultcodedata = Rescultcode::where("project_id", project_id())->get();
         $project = Project::all();
         return view('admin.resultcode', compact('project', 'agents', 'projects', 'new_users', 'users', 'new_deals', 'compaigns', 'deals', 'groups', 'resultcodedata'));
     }
@@ -167,7 +167,7 @@ class ResultCodeController extends Controller
         $agents = Agent::all();
         $projects = Project::all();
         $deals = Deal::all();
-        $script = script::all();
+        $script = script::where("project_id", project_id())->get();
         $project = Project::all();
         return view('admin.script', compact('agents', 'projects', 'new_users', 'users', 'new_deals', 'compaigns', 'deals', 'groups', 'script', 'project'));
     }

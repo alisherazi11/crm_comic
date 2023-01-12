@@ -18,7 +18,7 @@
     }
 
     .arrow {
-        border: solid black;
+        border: solid white;
         border-width: 0 3px 3px 0;
         display: inline-block;
         padding: 3px;
@@ -68,7 +68,7 @@
                         </select>
                     </div>
                     <div class="col-md-2" style='margin-top: 30px;'>
-                        <button class="btn btn-info btn-sm">Submit</button>
+                        <button class="btn btn-info btn-sm text-white">Submit</button>
                     </div>
                 </form>
                 <div class="row py-4 px-3 mt-4" style='border-top:0.5px solid #eee'>
@@ -110,8 +110,8 @@
                                 </div>
                             </div>
                             <div class='col-sm-2 text-center' style='align-self: center;'>
-                                <p><button class='arrow_icons_up mb-3 btn btn-info btn-sm' onClick="move_field(1)"><i class="arrow up"></i></button></p>
-                                <p><button class='arrow_icons_down btn btn-info btn-sm' onClick="move_field(2)"><i class="arrow down"></i></button></p>
+                                <p><button class='arrow_icons_up mb-3 btn btn-info btn-sm text-white' onClick="move_field(1)"><i class="arrow up text-white"></i></button></p>
+                                <p><button class='arrow_icons_down btn btn-info btn-sm text-white' onClick="move_field(2)"><i class="arrow down text-white"></i></button></p>
                             </div>
                         </div>
                     </div>
@@ -122,8 +122,8 @@
                                 @csrf --}}
                                 {{-- <button type="submit" class="btn btn-info btn-sm">Delete Selected</button> --}}
                             {{-- </form> --}}
-                            <a onclick="deleteFieldItem()" class="btn btn-info btn-sm cursor-pointer">Delete Selected</a>
-                            <a href="" class='duplicate_field'><button class="btn btn-info btn-sm">
+                            <a onclick="deleteFieldItem()" class="btn btn-info btn-sm cursor-pointer text-white">Delete Selected</a>
+                            <a href="" class='duplicate_field'><button class="btn btn-info btn-sm text-white">
                                     Duplicate </button></a>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                             <div class="col-md-8 mb-3">
                                 <input type="text" class="form-control" name="field_name" id='field_name' value="{{@$get_field->field_name}}" placeholder="Field Name">
                             </div>
-                            <hr>
+                            <div class="col-md-12"><hr></div>
                             <div class="col-md-4 mb-3"><label for="">Field Status</label></div>
                             <div class="col-md-8 mb-3">
                                 <input type="checkbox" name="field_status" id='field_status' @if(@$get_field->field_status==1) checked @endif value="1"> Active
@@ -154,7 +154,7 @@
                                 <input type="checkbox" name="field_permissions_caller_edit" id='field_permissions_caller_edit' @if(@$get_field->field_permissions_caller_edit==1) checked @endif value="1"> Allow Callers to Edit <br>
                                 <input type="checkbox" name="field_permissions_caller_search" id='field_permissions_caller_search' @if(@$get_field->field_permissions_caller_search==1) checked @endif value="1"> Allow Callers to Search
                             </div>
-                            <hr>
+                            <div class="col-md-12"><hr></div>
                             <div class="col-md-4 mb-3"><label for="">Field Type</label></div>
                             <div class="col-md-8 mb-3">
                                 <select name="" class="form-control" id="">
@@ -179,7 +179,7 @@
                         </div>
 
                         <div class="col-12 text-right mt-3">
-                            <button type="submit" class="btn btn-info" style='margin-right: -10px;'>Save</button>
+                            <button type="submit" class="btn btn-info text-white" style='margin-right: -10px;'>Save</button>
                         </div>
                     </form>
                 </div>

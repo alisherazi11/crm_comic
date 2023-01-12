@@ -22,7 +22,7 @@
 <body>
 <x-adminsidebar/>
 <div class="tableContainer">
-    <div id="leftspace" class="leftspacing adminview px-2" style="padding: 2rem !important;">
+    <div id="leftspace" class="leftspacing adminview px-2" style="padding: 2rem !important; height: fit-content;">
         <button data-toggle="modal" data-target="#exampleModalCenterdel" class="btn btn-sm float-right mb-3"
                 style="background-color:#2980B9; color:white;">Add Result Code
         </button>
@@ -174,7 +174,7 @@
                             <select class="form-select" id="validationCustom04" name="project_id">
                                 @foreach($project as $data)
                                     @if($data->status == 1)
-                                        <option value="{{$data->id}}">{{$data->title}}</option>
+                                        <option value="{{$data->id}}" {{$data->id == project_id() ? "selected" : ""}}>{{$data->title}}</option>
                                     @endif
                                 @endforeach
                             </select>

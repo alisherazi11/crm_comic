@@ -7,7 +7,7 @@
 <body>
 <x-adminsidebar/>
 <div class="tableContainer">
-    <div id="leftspace" class="leftspacing adminview px-2" style="padding: 2rem !important;">
+    <div id="leftspace" class="leftspacing adminview px-2" style="padding: 2rem !important; height: fit-content;">
         <button data-toggle="modal" data-target="#exampleModalCenterdel" class="btn btn-sm"
                 style="background-color:#369AD0; color:white; float:right;">Add Script
         </button>
@@ -68,7 +68,7 @@
                             <p>Project Id</p>
                             <select name="project_id" class="form-control">
                                 @foreach($project as $project_id)
-                                    <option class="form-control" value="{{$project_id->id}}"
+                                    <option class="form-control" value="{{$project_id->id}}" {{$project_id->id == project_id() ? "selected" : ""}}
                                             required>{{$project_id->title}}</option>
                                 @endforeach
                             </select>

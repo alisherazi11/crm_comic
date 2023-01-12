@@ -61,7 +61,8 @@ class DashboardController extends Controller
             session()->put('cid', $contactId);
             $UserData = Contact::orderBy('id', $direction)->where('id', $contactId)->first();
         } else {
-            $UserData = Contact::where('project_id', $id)->inRandomOrder()->first();
+            $UserData = Contact::orderBy('id', $direction)->where('project_id', $id)->first();
+            // $UserData = Contact::orderBy('id', $direction)->where('project_id', $id)->inRandomOrder()->first();
         }
 
         $activitydata = Activity::where('project_id', $id)->orderBy('created_at', 'desc')->get();
@@ -176,7 +177,7 @@ class DashboardController extends Controller
         $agents = Agent::all();
         $projects = Project::all();
         $deals = Deal::all();
-        $resultcodedata = Rescultcode::all();
+        $resultcodedata = Rescultcode::where("project_id", project_id())->get();
         $project = Project::all();
         return view('admin.emailsms', compact('project', 'agents', 'projects', 'new_users', 'users', 'new_deals', 'compaigns', 'deals', 'groups', 'resultcodedata'));
     }
@@ -198,7 +199,7 @@ class DashboardController extends Controller
     public function email()
     {
         $users = User::all();
-        $emailTemps = EmailTemplate::where('user_id', auth()->id())->get();
+        $emailTemps = EmailTemplate::where('user_id', auth()->id())->where("project_id", project_id())->get();
         $projects = Project::all();
         $resultcodedata = Rescultcode::all();
         return view('admin.email', compact('projects', 'users', 'resultcodedata', 'emailTemps'));
@@ -231,6 +232,7 @@ class DashboardController extends Controller
             'name' => $request->email_temp_name,
             'subject' => $request->email_temp_subject,
             'body' => $request->email_temp_body,
+            'project_id' => project_id(),
         ]);
         $notification = array(
             'alert-type' => 'success',
@@ -241,7 +243,7 @@ class DashboardController extends Controller
 
     public function smsTemplates()
     {
-        $smsTemps = SmsTemplate::where('user_id', auth()->id())->get();
+        $smsTemps = SmsTemplate::where('user_id', auth()->id())->where("project_id", project_id())->get();
         return view('admin.sms-templates', compact('smsTemps'));
     }
 
@@ -249,7 +251,7 @@ class DashboardController extends Controller
     {
         $emailTemp = null;
         if ($id) {
-            $emailTemp = SmsTemplate::where(['user_id' => auth()->id(), 'id' => $id])->first();
+            $emailTemp = SmsTemplate::where(['user_id' => auth()->id(), 'id' => $id])->where('project_id', project_id())->first();
         }
         return view('admin.sms-add', compact('emailTemp'));
     }
@@ -273,7 +275,7 @@ class DashboardController extends Controller
             $emailTemp->update(array_merge($request->except('_token'), ['user_id' => auth()->id()]));
             $message = 'SMS Template Updated Successfully.';
         } else {
-            $emailTemp = SmsTemplate::create(array_merge($request->except('_token'), ['user_id' => auth()->id()]));
+            $emailTemp = SmsTemplate::create(array_merge($request->except('_token'), ['user_id' => auth()->id(), 'project_id' => project_id()]));
             $message = 'SMS Template Added Successfully.';
         }
 
