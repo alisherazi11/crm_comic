@@ -13,18 +13,22 @@
         td {
             width: 100px;
         }
+
+        .adminlistnav {
+            margin-top: 1px !important;
+        }
     </style>
 </head>
 <body>
 <x-adminsidebar/>
-<div class="leftresultcideBox" style="background-color:white; padding:20px;">
-    <div id="leftspace" class="leftspacing adminview px-2">
+<div class="tableContainer">
+    <div id="leftspace" class="leftspacing adminview px-2" style="padding: 2rem !important;">
         <button data-toggle="modal" data-target="#exampleModalCenterdel" class="btn btn-sm float-right mb-3"
                 style="background-color:#2980B9; color:white;">Add Result Code
         </button>
         <h3 class="text-bold text-center mb-3">Result Codes</h3>
         <div class="table-content">
-            <table class="table table-borded table-responsive table-bordered " id="table-list">
+            <table class="table table-borded table-responsive table-bordered table-hover" id="table-list">
                 <thead class="table">
                 <tr>
                     <th width="5%"></th>
@@ -314,7 +318,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <x-adminfooter/>

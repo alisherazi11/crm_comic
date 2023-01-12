@@ -367,6 +367,7 @@
             </div>
         </div>
     </div>
+    <x-projectfooter />
     <script>
         $(document).ready(function() {
 
@@ -434,7 +435,6 @@
 
         });
     </script>
-    <x-projectfooter />
 {{-- @endsection --}}
 
 </body>

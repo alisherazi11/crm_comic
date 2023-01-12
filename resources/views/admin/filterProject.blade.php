@@ -6,7 +6,7 @@
         Search Contacts
     @endsection
 </head>
-<body style="background-color: #fff !important;">
+<body style="">
 <x-projectnavbar/>
 <div class="pt-4" style="width:100%; margin-top:-50px;">
     <div class="justify-content-between mb-4">
@@ -14,12 +14,12 @@
             @csrf
             <div class="mt-1">
                 <div class="row align-items-center">
-                    <div class="col-md-12  mb-2 mt-3">
+                    <div class="col-md-12  mb-2 mt-5">
                         <h3 class="text-bold text-center">Search Contacts</h3>
                     </div>
                     <div class="col-md-2"></div>
-                    <div class="col-md-8"
-                         style="background-color: #e8e8e8; padding: 0px 15px;border: 1px solid var(--bordercolor) !important; border-radius: 8px !important;">
+                    <div class="col-md-8 bg-white"
+                         style="padding: 0px 15px;border: 1px solid var(--bordercolor) !important; border-radius: 8px !important;">
 
                         <div class="mt-3">
                             <div class="form-group row ml-0">
@@ -124,59 +124,67 @@
         </form>
     </div>
 
-    <div class="leftresultcideBox" style="background-color:white; padding:20px;">
-        <div id="leftspace" class="leftspacing adminview px-2">
-            <h3 class="text-bold text-center mb-1">Contacts List</h3>
-            <div class="container mt-3" style="width:100%;">
-                <table class="table table-bordered table-hover">
-                    <thead class="shadow-sm">
-                    <tr>
-                        <th class="text-center">Contact Id</th>
-                        <th class="text-center">Project Name</th>
-                        <th class="text-center">User Name</th>
-                        <th class="text-center">Company</th>
-                        <th class="text-center">Name</th>
-                        <th class="text-center">Title</th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">Phone Number</th>
-                        <th class="text-center">Address</th>
-                        <th class="text-center">City</th>
-                        <th class="text-center">State</th>
-                        <th class="text-center">Zip</th>
-                        <th class="text-center">Country</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @if($contacts->count())
-                        @foreach($contacts as $data)
-                            <tr class='clickable-row' style="cursor: pointer;"
-                                data-href='{{url('/dashboard/'.(Session::has('pid') ? Session::get('pid') : 0).'/'.$data->id)}}'>
-                                <td class="text-left number">{{$data->id}}</td>
-                                <td>{{isset($data->project->title) ? $data->project->title : ''}}</td>
-                                <td>{{(isset($data->user->first_name )? $data->user->first_name  : '') .' '. (isset($data->user->last_name )? $data->user->last_name  : '')}}</td>
-                                <td>{{$data->company}}</td>
-                                <td>{{$data->first_name.' '.$data->last_name}}</td>
-                                <td>{{$data->title}}</td>
-                                <td>{{$data->email}}</td>
-                                <td>{{$data->mobile_number}}</td>
-                                <td>{{$data->address}}</td>
-                                <td>{{$data->city}}</td>
-                                <td>{{$data->state}}</td>
-                                <td>{{$data->zip}}</td>
-                                <td>{{$data->country}}</td>
+    <div class="row">
+        <div class='col-md-12'>
+            <h3 class="text-bold text-center mb-1 mb-3 mt-5">Contacts List</h3>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8 bg-white" style="padding: 0px 15px;border: 1px solid var(--bordercolor) !important; border-radius: 8px !important;">
+            <div class="leftresultcideBox" style="width: 100% !important; margin: unset;">
+                <div id="leftspace" class="leftspacing adminview px-2" style='border: unset !important;'>
+                    <div class="mt-3" style="width:100%;">
+                        <table class="table table-borded table-responsive table-bordered table-hover" style='display: inline-table'>
+                            <thead class="shadow-sm">
+                            <tr>
+                                <th class="text-center">Contact Id</th>
+                                <th class="text-center">Project Name</th>
+                                <th class="text-center">User Name</th>
+                                <th class="text-center">Company</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Title</th>
+                                <th class="text-center">Email</th>
+                                <th class="text-center">Phone Number</th>
+                                <th class="text-center">Address</th>
+                                <th class="text-center">City</th>
+                                <th class="text-center">State</th>
+                                <th class="text-center">Zip</th>
+                                <th class="text-center">Country</th>
                             </tr>
+                            </thead>
+                            <tbody>
+                            @if($contacts->count())
+                                @foreach($contacts as $data)
+                                    <tr class='clickable-row' style="cursor: pointer;"
+                                        data-href='{{url('/dashboard/'.(Session::has('pid') ? Session::get('pid') : 0).'/'.$data->id)}}'>
+                                        <td class="text-left number">{{$data->id}}</td>
+                                        <td>{{isset($data->project->title) ? $data->project->title : ''}}</td>
+                                        <td>{{(isset($data->user->first_name )? $data->user->first_name  : '') .' '. (isset($data->user->last_name )? $data->user->last_name  : '')}}</td>
+                                        <td>{{$data->company}}</td>
+                                        <td>{{$data->first_name.' '.$data->last_name}}</td>
+                                        <td>{{$data->title}}</td>
+                                        <td>{{$data->email}}</td>
+                                        <td>{{$data->mobile_number}}</td>
+                                        <td>{{$data->address}}</td>
+                                        <td>{{$data->city}}</td>
+                                        <td>{{$data->state}}</td>
+                                        <td>{{$data->zip}}</td>
+                                        <td>{{$data->country}}</td>
+                                    </tr>
 
-                        @endforeach
-                    @else
-                        <tr style="background-color:white;">
-                            <th class="text-center" style="padding: 10px; border:0px;" colspan="12">No contact in list
-                            </th>
-                        </tr>
-                    @endif
-                    </tbody>
-                </table>
+                                @endforeach
+                            @else
+                                <tr style="background-color:white;">
+                                    <th class="text-center" style="padding: 10px; border:0px;" colspan="12">No contact in list
+                                    </th>
+                                </tr>
+                            @endif
+                            </tbody>
+                        </table>
 
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
     </div>
 </div>

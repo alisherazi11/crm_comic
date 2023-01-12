@@ -354,15 +354,15 @@ Dashboard
                                             aria-labelledby="home-tab">
                                                 @foreach(getfields() as $field)
                                                 @php
-                                                $column_name=$field->column_name;
+                                                $column_name=@$field->column_name;
                                                 @endphp
-                                                @if($field->field_tab==1)
+                                                @if(@$field->field_tab==1)
                                                 <div class="row mt-1">
                                                     <div class="col-md-4">
-                                                        <label for="">{{$field->field_name}}</label>
+                                                        <label for="">{{@$field->field_name}}</label>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="{{$field->field_type}}" class="form-control" name="{{$field->column_name}}" value="{{$UserData->$column_name}}" placeholder="{{$field->field_name}}">
+                                                        <input type="{{@$field->field_type}}" class="form-control" name="{{@$field->column_name}}" value="{{@$UserData->$column_name}}" placeholder="{{@$field->field_name}}">
                                                     </div>
                                                 </div>
                                                 @endif
@@ -373,15 +373,15 @@ Dashboard
                                             aria-labelledby="profile-tab">
                                                 @foreach(getfields() as $field)
                                                 @php
-                                                $column_name=$field->column_name;
+                                                $column_name=@$field->column_name;
                                                 @endphp
                                                 @if($field->field_tab==2)
                                                 <div class="row mt-1">
                                                     <div class="col-md-4">
-                                                        <label for="">{{$field->field_name}}</label>
+                                                        <label for="">{{@$field->field_name}}</label>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="{{$field->field_type}}" class="form-control" name="{{$field->column_name}}" value="{{$UserData->$column_name}}" placeholder="{{$field->field_name}}">
+                                                        <input type="{{@$field->field_type}}" class="form-control" name="{{@$field->column_name}}" value="{{@$UserData->$column_name}}" placeholder="{{@$field->field_name}}">
                                                     </div>
                                                 </div>
                                                 @endif
@@ -402,15 +402,15 @@ Dashboard
 
                                                 @foreach(getfields() as $field)
                                                 @php
-                                                $column_name=$field->column_name;
+                                                $column_name=@$field->column_name;
                                                 @endphp
                                                 @if($field->field_tab==1)
                                                 <div class="row mt-1">
                                                     <div class="col-md-4">
-                                                        <label for="">{{$field->field_name}}</label>
+                                                        <label for="">{{@$field->field_name}}</label>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="{{$field->field_type}}" class="form-control" name="{{$field->column_name}}" value="{{$UserData->$column_name}}" placeholder="{{$field->field_name}}">
+                                                        <input type="{{$field->field_type}}" class="form-control" name="{{@$field->column_name}}" value="{{@$UserData->$column_name}}" placeholder="{{$field->field_name}}">
                                                     </div>
                                                 </div>
                                                 @endif
@@ -723,7 +723,7 @@ Dashboard
                                         <div class="card-body p-0">
                                             <div id="accordion">
                                                 <div class="card collapsCard border-bottom">
-                                                    <div class="card-header collapsCadHeader p-3" id="headingtask">
+                                                    <div class="card-header collapsCadHeader p-3" style='cursor: unset' id="headingtask">
                                                         <h5 class="mb-0">
                                                         <div class="taskalgn">
                                                             <div class="task">
@@ -732,18 +732,18 @@ Dashboard
                                                                 <p>Tasks</p>
                                                             </div>
                                                             <div class="task">
-                                                                <div class="bluecircle" data-toggle="modal"
+                                                                <div style='cursor: pointer' class="bluecircle" data-toggle="modal"
                                                                     data-target="#exampleModalCenter5">
                                                                     <!-- <i class="fa-solid fa-plus"></i> -->
                                                                     <ion-icon name="add"></ion-icon>
                                                                 </div>
-                                                                <div class="bluecircle">
+                                                                <div style='cursor: pointer' class="bluecircle">
                                                                     <!-- <i class="fa fa-bolt fa-fw fa-2x"></i> -->
                                                                     <img src="{{ asset('images/energywhite.png') }}"
                                                                     style="width: 14px" alt=""/>
                                                                 </div>
                                                                 <!-- <i class="fa-solid fa-angle-up"></i> -->
-                                                                <ion-icon name="chevron-up-outline" class="collapsed"
+                                                                <ion-icon style='cursor: pointer' name="chevron-up-outline" class="collapsed"
                                                                 data-toggle="collapse" data-target="#collapsetask"
                                                                 aria-expanded="false" aria-controls="collapsetask">
                                                                 </ion-icon>
@@ -763,7 +763,7 @@ Dashboard
                                                     </div>
                                                 </div>
                                                 <div class="card collapsCard border-bottom">
-                                                    <div class="card-header collapsCadHeader" id="headingFive">
+                                                    <div class="card-header collapsCadHeader" style='cursor: unset !important' id="headingFive">
                                                         <h5 class="mb-0">
                                                         <div class="taskalgn">
                                                             <div class="task">
@@ -773,16 +773,16 @@ Dashboard
                                                             </div>
                                                             <div class="task">
                                                                 <div class="bluecircle" data-toggle="modal"
-                                                                    data-target="#exampleModalCenter7">
+                                                                    data-target="#exampleModalCenter7" style='cursor: pointer'>
                                                                     <!-- <i class="fa-solid fa-plus"></i> -->
                                                                     <ion-icon name="add"></ion-icon>
                                                                 </div>
-                                                                <div class="bluecircle">
+                                                                <div class="bluecircle" style='cursor: pointer'>
                                                                     <img src="{{ asset('images/energywhite.png') }}"
                                                                     style="width: 14px" alt=""/>
                                                                 </div>
                                                                 <!-- <i class="fa-solid fa-angle-up"></i> -->
-                                                                <ion-icon name="chevron-up-outline" class="collapsed"
+                                                                <ion-icon name="chevron-up-outline" style='cursor: pointer' class="collapsed"
                                                                 data-toggle="collapse" data-target="#collapseFive"
                                                                 aria-expanded="false" aria-controls="collapseFive">
                                                                 </ion-icon>
@@ -802,7 +802,7 @@ Dashboard
                                                     </div>
                                                 </div>
                                                 <div class="card collapsCard border-bottom">
-                                                    <div class="card-header collapsCadHeader" id="headingSix">
+                                                    <div class="card-header collapsCadHeader" style='cursor: unset' id="headingSix">
                                                         <h5 class="mb-0">
                                                         <div class="taskalgn">
                                                             <div class="task">
@@ -814,13 +814,13 @@ Dashboard
                                                                 <label for="fileupload">
                                                                     <input type="file" hidden name=""
                                                                     id="fileupload"/>
-                                                                    <div class="bluecircle">
+                                                                    <div class="bluecircle" style='cursor: pointer'>
                                                                         <!-- <i class="fa-solid fa-plus"></i> -->
                                                                         <ion-icon name="add"></ion-icon>
                                                                     </div>
                                                                 </label>
                                                                 <!-- <i class="fa-solid fa-angle-up"></i> -->
-                                                                <ion-icon name="chevron-up-outline" class="collapsed"
+                                                                <ion-icon style='cursor: pointer' name="chevron-up-outline" class="collapsed"
                                                                 data-toggle="collapse" data-target="#collapseSix"
                                                                 aria-expanded="false" aria-controls="collapseSix">
                                                                 </ion-icon>
@@ -845,7 +845,8 @@ Dashboard
                                 </div>
                             </div>
                         </div>
-                        <div class="dealBoxScrollable">
+                        {{-- deal --}}
+                        {{-- <div class="dealBoxScrollable">
                             <div class="accordion" id="accordionExample">
                                 <div class="card collapsCard border-bottom">
                                     <div class="card-header profileCollasp" id="headingfourteen">
@@ -860,7 +861,6 @@ Dashboard
                                         </div>
                                         </h5>
                                     </div>
-                                    {{-- deal --}}
                                     <div id="collapsefourteen" class="collapse show" aria-labelledby="headingfourteen"
                                         data-parent="#accordion">
                                         <div class="card-body p-0">
@@ -878,10 +878,8 @@ Dashboard
                                                             <div class="task">
                                                                 <div class="bluecircle" data-toggle="modal"
                                                                     data-target="#exampleModalCenter4">
-                                                                    <!-- <i class="fa-solid fa-plus"></i> -->
                                                                     <ion-icon name="add"></ion-icon>
                                                                 </div>
-                                                                <!-- <i class="fa-solid fa-angle-up"></i> -->
                                                                 <ion-icon data-toggle="collapse"
                                                                 data-target="#collapseEight" aria-expanded="false"
                                                                 aria-controls="collapseEight" class="collapsed"
@@ -897,43 +895,12 @@ Dashboard
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{-- <div class="card collapsCard border-bottom">
-                                                    <div class="card-header collapsCadHeader" id="headingSeveen">
-                                                        <h5 class="mb-0">
-                                                        <div class="taskalgn">
-                                                            <div class="task">
-                                                                <img src="{{ asset('images/cursor.png') }}" alt="" />
-                                                                <p>Activity</p>
-                                                            </div>
-                                                            <div class="task">
-                                                                <div class="bluecircle" data-toggle="modal"
-                                                                    data-target="#exampleModalCenter8">
-                                                                    <!-- <i class="fa-solid fa-plus"></i> -->
-                                                                    <ion-icon name="add"></ion-icon>
-                                                                </div>
-                                                                <!-- <i class="fa-solid fa-angle-up"></i> -->
-                                                                <ion-icon name="chevron-up-outline" class="collapsed"
-                                                                data-toggle="collapse" data-target="#collapseSeveen"
-                                                                aria-expanded="false" aria-controls="collapseSeveen">
-                                                                </ion-icon>
-                                                            </div>
-                                                        </div>
-                                                        </h5>
-                                                    </div>
-                                                    <div id="collapseSeveen" class="collapse show"
-                                                        aria-labelledby="headingSeveen" data-parent="#accordion">
-                                                        <div class="card-body collapsCardBody">
-                                                            <p class="text">No Activity</p>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {{-- deal --}}
+                        </div> --}}
                         <div class="dealBoxScrollable">
                             <div class="accordion" id="accordionExample">
                                 <div class="card collapsCard border-bottom">
@@ -955,23 +922,23 @@ Dashboard
                                         <div class="card-body p-0">
                                             <div id="accordiontwo">
                                                 <div class="card collapsCard border-bottom daalBox">
-                                                    <div class="card-header collapsCadHeader" id="headingEight">
+                                                    <div class="card-header collapsCadHeader" style='cursor: unset !important' id="headingEight">
                                                         <h5 class="mb-0">
                                                         <div class="taskalgn">
                                                             <div class="task">
                                                                 <!-- <i class="fa-solid fa-sack-dollar"></i> -->
                                                                 <img src="{{ asset('images/deal (1).png') }}"
                                                                 alt=""/>
-                                                                <p><a href="admin/deal"> Add Collaborator</a></p>
+                                                                <p><span> Add Collaborator</span></p>
                                                             </div>
                                                             <div class="task">
                                                                 <div class="bluecircle" data-toggle="modal"
-                                                                    data-target="#exampleModalCenter4">
+                                                                    data-target="#exampleModalCenter4" style='cursor: pointer'>
                                                                     <!-- <i class="fa-solid fa-plus"></i> -->
                                                                     <ion-icon name="add"></ion-icon>
                                                                 </div>
                                                                 <!-- <i class="fa-solid fa-angle-up"></i> -->
-                                                                <ion-icon data-toggle="collapse"
+                                                                <ion-icon data-toggle="collapse" style='cursor: pointer'
                                                                 data-target="#collapseEighttwo" aria-expanded="false"
                                                                 aria-controls="collapseEight" class="collapsed"
                                                                 name="chevron-up-outline"></ion-icon>

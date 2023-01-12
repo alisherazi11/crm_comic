@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <x-projecthead />
@@ -136,4 +136,6 @@
         <x-projectfooter />
         
     </body>
-</html>
+</html> --}}
+
+@include('admin.edit-fields')

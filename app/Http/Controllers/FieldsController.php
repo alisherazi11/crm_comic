@@ -167,10 +167,10 @@ class FieldsController extends Controller
             $input=[
                 'field_name'=>$req->field_name,
                 'column_name'=>$field_name,
-                'field_status'=>$req->field_status!=null ? 1 : 0 ,
+                'field_status'=>$req->field_status ? 1 : 0 ,
                 'field_visible'=>$req->field_visible,
-                'field_permissions_caller_edit'=>$req->field_permissions_caller_edit,
-                'field_permissions_caller_search'=>$req->field_permissions_caller_search,
+                'field_permissions_caller_edit'=>$req->field_permissions_caller_edit ? 1 : 0,
+                'field_permissions_caller_search'=>$req->field_permissions_caller_search ? 1 : 0,
                 'field_type'=>$req->field_type,
                 'field_data_lenght_min'=>$req->field_data_lenght_min,
                 'field_data_lenght_mx'=>$req->field_data_lenght_mx
@@ -225,10 +225,16 @@ class FieldsController extends Controller
             });
 
             $field->delete();
+            if(request()->ajax())
+                return 1;
+
             return redirect('fields')->with('success', 'Field successfully deleted');            
 
         } catch (Exception $e) {
             $get_field->save();
+            if(request()->ajax())
+                return 1;
+                
             return redirect('fields')->with('error', 'Something went wrong with this error: '.$e->getMessage());            
         }
     }

@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Artisan;
 Route::get('/',[IndexController::class,'index'])->name('index');
 Route::post('/signin',[IndexController::class,'signin']);
 Route::get('/logout',[IndexController::class,'logout'])->middleware('auth');
+
 //Admin Routes
 Route::get('/admin',[AdminController::class,'index'])->middleware('auth');
 Route::get('/admin/profile',[AdminController::class,'profile'])->middleware('auth');
@@ -204,6 +205,7 @@ Route::post('/update-order-routing',[DashboardController::class,'orderRouteUpdat
 
 Route::get('fields/duplicate/{id}', 'App\Http\Controllers\FieldsController@duplicate')->name('fields.duplicate')->middleware('auth');
 Route::resource('fields', 'App\Http\Controllers\FieldsController')->middleware('auth');
+Route::get('fields/delete/{id}', 'App\Http\Controllers\FieldsController@destroy')->middleware('auth');
 
 //Contacts import
 

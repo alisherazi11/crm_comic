@@ -545,7 +545,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-8">
-                                            <div class="mt-1 bg-white-custome">
+                                            <div class="mt-1 bg-white-custome pt-3">
                                                 <ul class="nav nav-tabs mb-3 detailanavtabs" id="pills-tab"
                                                     role="tablist">
                                                     <li class="nav-item" role="presentation">

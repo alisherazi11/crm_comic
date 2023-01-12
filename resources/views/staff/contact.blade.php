@@ -96,9 +96,8 @@
     </div>
 </div>
 <!-- Edit -->
+<x-projectfooter/>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-
-
 <script>
     $(document).ready(function () {
       $("#example").DataTable();

@@ -29,6 +29,7 @@ class ContactController extends Controller
      */
     public function index()
     {
+
         // $contacts=Contact::where('user_id',auth()->user()->id)->get();
         $contacts=Contact::all();
         //dd($contacts);

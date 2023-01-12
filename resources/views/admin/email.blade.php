@@ -13,6 +13,10 @@
 
         }
 
+        .addbtnExtra:hover {
+            background-color: #2980B9 !important; 
+        }
+
         .emailtemplateContainer {
             padding: 20px;
         }
@@ -315,12 +319,17 @@
 
 <div class="emailtemplateContainer">
     <div class="email-wrapper">
-        <div class="d-flex justify-content-between">
+        {{-- <div class="d-flex justify-content-between">
             <h6>Email Template</h6>
             <button class="addbtn">Save</button>
-        </div>
+        </div> --}}
 
-        <div class="contentBox">
+        <button class="btn btn-sm float-right mb-3 addbtn addbtnExtra"
+                style="background-color:#2980B9; color:white;">Save
+        </button>
+        <h3 class="text-bold text-center mb-3">Email Template</h3>
+
+        <div class="contentBox mt-5">
             <p>
                 By Sending(or allowing to be sent) email messages from SalesCallz,
                 you agree to follow the rules in the United States of the

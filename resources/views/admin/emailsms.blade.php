@@ -5,8 +5,8 @@
 </head>
 <body>
 <x-adminsidebar/>
-<div class="leftresultcideBox" style="background-color:white; padding:20px;">
-    <div id="leftspace" class="leftspacing adminview px-2">
+<div class="tableContainer">
+    <div id="leftspace" class="leftspacing adminview px-2" style="padding: 2rem !important;">
         <h3 class="text-bold text-center mb-3">Email & SMS</h3>
         <div class="container mt-5" style="width:100%;">
             <table class="table table-hover table-bordered">
@@ -40,7 +40,6 @@
             </table>
 
         </div>
-    </div>
 </div>
 
 <x-adminfooter/>

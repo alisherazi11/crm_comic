@@ -6,14 +6,14 @@
 </head>
 <body>
 <x-adminsidebar/>
-<div class="leftresultcideBox" style="background-color:white; padding:20px;">
-    <div id="leftspace" class="leftspacing adminview px-2">
-        <h3 class="text-bold text-center mb-3">Script</h3>
+<div class="tableContainer">
+    <div id="leftspace" class="leftspacing adminview px-2" style="padding: 2rem !important;">
         <button data-toggle="modal" data-target="#exampleModalCenterdel" class="btn btn-sm"
-                style="background-color:#369AD0; color:white;">Add Script
+                style="background-color:#369AD0; color:white; float:right;">Add Script
         </button>
-        <div class="container mt-5" style="width:100%;">
-            <table class="table table-bordered table-hover">
+        <h3 class="text-bold text-center mb-3">Script</h3>
+        <div class="table-content mt-5" style="width:100%;">
+            <table class="table table-borded table-responsive table-bordered table-hover">
                 <thead class="shadow-sm">
                 <tr>
                     <th></th>

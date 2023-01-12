@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Contracts\Auth\Factory as Auth;
 
 class Authenticate extends Middleware
 {
@@ -12,6 +13,20 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
+
+     public function __construct(Auth $auth)
+     {
+         $this->auth = $auth;
+         if(\Auth::check()){
+            $uri = \Route::current()->uri;
+            $url_list = ['admin/contacts', 'deals', 'dashboard/*', 'admin/resultcode', 'admin/emailsms', 'admin/script', 'admin/email-send', 'sms-templates', 'order-route', 'fields', 'add-contact', 'edit-contact'];
+            if(in_array($uri, $url_list) && !\Session::has('pid')){
+                \Redirect::to('project')->send();
+            }
+                
+         }
+     }
+
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {

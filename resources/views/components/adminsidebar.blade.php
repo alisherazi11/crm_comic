@@ -153,6 +153,12 @@ class="navbar py-0 px-sm-5 px-1 navbar-expand-lg navbar-light bg-white customeHe
 </div>
 </nav> --}}
 
+
+
+
+
+
+{{-- 
 <nav
 class="navbar py-0 px-sm-5 px-1 mb-4 navbar-expand-lg navbar-light bg-white customeHeader"
 >
@@ -352,4 +358,5 @@ class="navbar py-0 px-sm-5 px-1 mb-4 navbar-expand-lg navbar-light bg-white cust
     </div>
   </div>
 </div>
-</nav>
+</nav> --}}
+@include('components.final_nav')

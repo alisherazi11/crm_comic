@@ -1,15 +1,20 @@
 <html>
 <head>
     <x-adminhead/>
+    <style>
+    .adminlistnav {
+        margin-top: 1px !important;
+    }
+    </style>
 </head>
 <body>
 <x-adminsidebar/>
-<div class="leftresultcideBox" style="background-color:white; padding:20px;">
-    <div id="leftspace" class="leftspacing adminview px-2">
+<div class="tableContainer">
+    <div id="leftspace" class="leftspacing adminview px-2" style="padding: 2rem !important;">
         <a href="{{url('admin/sms-add')}}" class="btn btn-sm float-right mb-3" style="background-color:#2980B9; color:white;">Add SMS Template</a>
         <h3 class="text-bold text-center mb-3">SMS Templates</h3>
-        <div class="container mt-5" style="width:100%;">
-            <table class="table table-bordered table-hover">
+        <div class="table-content mt-5" style="width:100%;">
+            <table class="table table-borded table-responsive table-bordered table-hover">
                 <thead class="shadow-sm">
                 <tr>
                     <th></th>
@@ -44,7 +49,7 @@
                 @endforeach
                 </tbody>
             </table>
-
+        </div>
         </div>
     </div>
     <x-adminfooter/>
