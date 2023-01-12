@@ -28,3 +28,7 @@ function users()
 {
    return User::all();
 }
+
+function project_id(){
+    return \Session::get('pid');
+}

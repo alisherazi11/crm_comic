@@ -7,9 +7,7 @@
 
 <!-- ///Custome css -->
 <script type="text/javascript">
-    var url = '{{ URL::asset('
-    images / ') }}'
-
+    var url = '{{ URL::asset('images/') }}'
 </script>
 <link rel="stylesheet" href="{{ asset('assets/dateTable/jquery.dataTables.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/contact.css') }}" />

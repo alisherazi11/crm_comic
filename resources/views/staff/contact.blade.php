@@ -32,6 +32,7 @@
                     </th>
                     <th>Last Name</th>
                     <th>Email (Click to Open)</th>
+                    <th>Collaborator</th>
                     <th>Title</th>
                     <th>Date</th>
                     <th>Mobile Number</th>
@@ -47,11 +48,11 @@
                         <a class="badge badge-danger" href="{{ url('delete_contacts/' . $item->id) }}">
                             Delete
                         </a>
-
                     </td>
                     <td>{{ $item->first_name }}</td>
                     <td>{{ $item->last_name }}</td>
                     <td><a href="{{url('reqcontact/'.$item->id)}}">{{ $item->email }}</a></td>
+                    <td>{{ $item->collaborator ? ($item->collaborator->first_name ." ".$item->collaborator->last_name) : '' }}</td>
                     <td>{{ $item->title }}</td>
                     <td>
                         <p><i class="fa-regular fa-clock"></i> {{ date('d M', strtotime($item->created_at)) }}

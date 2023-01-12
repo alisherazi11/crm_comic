@@ -29,19 +29,14 @@ class ContactController extends Controller
      */
     public function index()
     {
-
-        // $contacts=Contact::where('user_id',auth()->user()->id)->get();
-        $contacts=Contact::all();
-        //dd($contacts);
+        $contacts=Contact::with('collaborator')->where("project_id", project_id())->get();
         return view('staff.contact',compact('contacts'));
     }
 
 
     public function deals()
     {
-        // $contacts=Contact::where('user_id',auth()->user()->id)->get();
-        $contacts=Contact::all();
-        //dd($contacts);
+        $contacts= Contact::with('collaborator')->where("project_id", project_id())->get();
         return view('staff.deals',compact('contacts'));
     }
 

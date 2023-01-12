@@ -17,6 +17,23 @@
         padding-bottom: 0.01rem !important;
     }
 
+    .arrow {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+    }
+
+    .up {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+    }
+
+    .down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
     </style>
     @section('title')
     Fields
@@ -55,33 +72,47 @@
                     </div>
                 </form>
                 <div class="row py-4 px-3 mt-4" style='border-top:0.5px solid #eee'>
-                    <div class="col-md-4 py-3" style='border:1px solid #eee;'>
-                    <div class="p-0 py-2 px-3 mb-3 nav-list" style='border:1px solid #eee; max-height: 500px !important; overflow-y: auto;'>
-                        <div class='mt-4'>
-                            <h5 class="text-center mb-2">Leads Detail</h5>
-                            @foreach($fields as $field)
-                                @if($field->field_tab==1)
-                                    <a onclick="setDataFor('.field-value-{{$field->id}}')" data-field-name='{{$field->field_name}}' data-field-status='{{$field->field_status}}' data-field-edit='{{$field->field_permissions_caller_edit}}' data-field-search='{{$field->field_permissions_caller_search}}' data-field-type='' data-field-min='{{$field->field_data_lenght_min}}' data-field-max='{{$field->field_data_lenght_mx}}' data-field-visible="{{$field->field_visible}}" data-field-id='{{$field->id}}' class="nav-link field-value-{{$field->id}} curson-pointer @if($field->id== @$get_field->id) text-white bg-secondary @endif  text-dark p-1">- {{$field->field_name}}</a>
-                                @endif
-                            @endforeach
-                        </div>
-                        <hr>
-                        <div class='mt-4'>
-                            <h5 class="text-center mb-2">Application Detail</h5>
-                            @foreach($fields as $field)
-                                @if($field->field_tab==2)
-                                <a onclick="setDataFor('.field-value-{{$field->id}}')" data-field-name='{{$field->field_name}}' data-field-status='{{$field->field_status}}' data-field-edit='{{$field->field_permissions_caller_edit}}' data-field-search='{{$field->field_permissions_caller_search}}' data-field-type='' data-field-min='{{$field->field_data_lenght_min}}' data-field-max='{{$field->field_data_lenght_mx}}' data-field-visible="{{$field->field_visible}}" data-field-id='{{$field->id}}' class="nav-link field-value-{{$field->id}} curson-pointer @if($field->id==@$get_field->id) text-white bg-secondary @endif text-dark p-1">- {{$field->field_name}}</a>
-                                @endif
-                            @endforeach
-                        </div>
-                        <hr>
-                        <div class='mt-4'>
-                        <h5 class="text-center mb-2">Additional Detail</h5>
-                            @foreach($fields as $field)
-                                @if($field->field_tab==3)
-                                <a onclick="setDataFor('.field-value-{{$field->id}}')" data-field-name='{{$field->field_name}}' data-field-status='{{$field->field_status}}' data-field-edit='{{$field->field_permissions_caller_edit}}' data-field-search='{{$field->field_permissions_caller_search}}' data-field-type='' data-field-min='{{$field->field_data_lenght_min}}' data-field-max='{{$field->field_data_lenght_mx}}' data-field-visible="{{$field->field_visible}}" data-field-id='{{$field->id}}' class="nav-link field-value-{{$field->id}} curson-pointer @if($field->id==@$get_field->id) text-white bg-secondary @endif text-dark p-1">- {{$field->field_name}}</a>
-                                @endif
-                            @endforeach
+                    <div class="col-md-5 py-3" style='border:1px solid #eee;'>
+                    <div class="p-0 py-2 px-3 mb-3 nav-list">
+                        <div class='row'>
+                            <div class='col-sm-10' style='border:1px solid #eee; max-height: 500px !important; min-height: 500px !important; overflow-y: auto;'>
+                                <div class='mt-4'>
+                                    <h5 class="text-center mb-2">Leads Detail</h5>
+                                    <div class='leads-detail-div'>
+                                    @foreach($fields as $field)
+                                        @if($field->field_tab==1)
+                                            <a onclick="setDataFor('.field-value-{{$field->id}}')" data-field-name='{{$field->field_name}}' data-field-status='{{$field->field_status}}' data-field-edit='{{$field->field_permissions_caller_edit}}' data-field-search='{{$field->field_permissions_caller_search}}' data-field-type='' data-field-min='{{$field->field_data_lenght_min}}' data-field-max='{{$field->field_data_lenght_mx}}' data-field-visible="{{$field->field_visible}}" data-field-id='{{$field->id}}' class="nav-link field-value-{{$field->id}} lead-detail cursor-pointer @if($field->id== @$get_field->id) text-white bg-secondary @endif  text-dark p-1">- {{$field->field_name}}</a>
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class='mt-4'>
+                                    <h5 class="text-center mb-2">Application Detail</h5>
+                                    <div class='app-detail-div'>
+                                    @foreach($fields as $field)
+                                        @if($field->field_tab==2)
+                                        <a onclick="setDataFor('.field-value-{{$field->id}}')" data-field-name='{{$field->field_name}}' data-field-status='{{$field->field_status}}' data-field-edit='{{$field->field_permissions_caller_edit}}' data-field-search='{{$field->field_permissions_caller_search}}' data-field-type='' data-field-min='{{$field->field_data_lenght_min}}' data-field-max='{{$field->field_data_lenght_mx}}' data-field-visible="{{$field->field_visible}}" data-field-id='{{$field->id}}' class="nav-link field-value-{{$field->id}} curson-pointer app-detail @if($field->id==@$get_field->id) text-white bg-secondary @endif text-dark p-1">- {{$field->field_name}}</a>
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class='mt-4'>
+                                <h5 class="text-center mb-2">Additional Detail</h5>
+                                    <div class='add-detail-div'>
+                                    @foreach($fields as $field)
+                                        @if($field->field_tab==3)
+                                        <a onclick="setDataFor('.field-value-{{$field->id}}')" data-field-name='{{$field->field_name}}' data-field-status='{{$field->field_status}}' data-field-edit='{{$field->field_permissions_caller_edit}}' data-field-search='{{$field->field_permissions_caller_search}}' data-field-type='' data-field-min='{{$field->field_data_lenght_min}}' data-field-max='{{$field->field_data_lenght_mx}}' data-field-visible="{{$field->field_visible}}" data-field-id='{{$field->id}}' class="nav-link field-value-{{$field->id}} curson-pointer add-detail @if($field->id==@$get_field->id) text-white bg-secondary @endif text-dark p-1">- {{$field->field_name}}</a>
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-sm-2 text-center' style='align-self: center;'>
+                                <p><button class='arrow_icons_up mb-3 btn btn-info btn-sm' onClick="move_field(1)"><i class="arrow up"></i></button></p>
+                                <p><button class='arrow_icons_down btn btn-info btn-sm' onClick="move_field(2)"><i class="arrow down"></i></button></p>
+                            </div>
                         </div>
                     </div>
                      <div class="row mt-2">
@@ -98,7 +129,7 @@
                     </div>
                     </div>
                         
-                    <div class="col-md-8 p-0 py-2 px-3" style='border:1px solid #eee;'>
+                    <div class="col-md-7 p-0 py-2 px-3" style='border:1px solid #eee;'>
                         <form method="post" action="{{url('fields')}}" class="row mt-4 field_form">
                             @csrf
                             <div class="col-md-4 mb-3"><label for="">Name</label></div>
@@ -181,6 +212,63 @@
                 $.get(url, function(result){
 
                 });
+            }
+        }
+
+        function move_field(direction){
+            //direction 1 = up
+            //direction 1 = down
+            if($(".selected-field-item").length){
+                $(".arrow_icons_up").attr("disabled", true)
+                $(".arrow_icons_down").attr("disabled", true)
+                field_id = $(".selected-field-item").data("field-id");
+                url = "{{url('fields-move')}}"+"/"+field_id+"/"+direction
+
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json', // added data type
+                    success: function(result) {
+                        $(".arrow_icons_up").removeAttr("disabled")
+                        $(".arrow_icons_down").removeAttr("disabled")
+                        console.log(result);
+
+                        selected_field = $(".selected-field-item");
+                        if(selected_field.hasClass('lead-detail')){
+                            move_item('.leads-detail-div','lead-detail', selected_field, direction);
+                        }else if(selected_field.hasClass('app-detail')){
+                            move_item('.app-detail-div','app-detail',selected_field, direction);
+                        }else if(selected_field.hasClass('add-detail')){
+                            move_item('.add-detail-div','add-detail', selected_field, direction);
+                        }
+                    }
+                });
+               
+            }
+        }
+
+        function move_item(parent_div, item_class, selected_item, direction){
+            div_str = "div"+parent_div;
+            all_items = $(div_str).children();
+            if(direction == 1){//move up
+                previous_item = selected_item.prev();
+                if(previous_item && previous_item.hasClass(item_class)){
+                    previous_html = previous_item[0];
+                    current_html = selected_item[0];
+                    all_items[previous_item.index()] = current_html;
+                    all_items[selected_item.index()] = previous_html;
+                    $(div_str).html(all_items);            
+                }
+            }
+            else{ //move down
+                next_item = selected_item.next();
+                if(next_item && next_item.hasClass(item_class)){
+                    next_html = next_item[0];
+                    current_html = selected_item[0];
+                    all_items[next_item.index()] = current_html;
+                    all_items[selected_item.index()] = next_html;
+                    $(div_str).html(all_items);  
+                }
             }
         }
 

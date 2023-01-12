@@ -1141,6 +1141,7 @@ Dashboard
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label for="">Select User as Collaborator</label>
+                                        <input type='hidden' name='contact_id' value='{{@$UserData->id}}'>
                                         <select name="user" id="" class="form-control">
                                             @foreach(users() as $user)
                                             <option value="{{$user->id}}">{{$user->first_name}} {{$user->last_name}}</option>

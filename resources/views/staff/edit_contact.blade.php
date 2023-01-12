@@ -38,13 +38,14 @@
                                                                     <div class="mb-1 row mt-1">
                                                                         <!-- <label for="">Select Project ID *</label> -->
                                                                         <div class="col-6 col-sm-12">
-                                                                            <select class="form-control" name="project_id" style="display:none;">
+                                                                            {{-- <select class="form-control" name="project_id" style="display:none;">
                                                                                 @foreach($project as $id)
                                                                                 @if($id->status == 1)
                                                                                 <option @if($contact->project_id==$id->id) selected @endif value="{{$id->id}}">{{$id->title}}</option>
                                                                                 @endif
                                                                                 @endforeach
-                                                                            </select>
+                                                                            </select> --}}
+                                                                            <input type='hidden' name='project_id' value='{{project_id()}}'>
                                                                         </div>
                                                                     </div>
                                                                     <div class="mb-1 row mt-1">

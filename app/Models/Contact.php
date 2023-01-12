@@ -14,6 +14,12 @@ class Contact extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function collaborator()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function project()
     {
         return $this->belongsTo(Project::class,'project_id');

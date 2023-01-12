@@ -17,9 +17,8 @@ class FieldsController extends Controller
      */
     public function index()
     {
-
-        $fields=Fields::all();
-
+        $project_id = \Session::get('pid');
+        $fields=Fields::where("project_id", $project_id)->orderBy("index_id", "ASC")->get();
         return view('admin.fields')->with('fields', $fields);
     }
 
@@ -43,11 +42,24 @@ class FieldsController extends Controller
     {
         $field=null;
         try {
+            
+            $project_id = \Session::get('pid');
+            $field_with_greatest_index = Fields::where("project_id", $project_id)
+                                            ->whereNotNull("index_id")
+                                            ->orderBy("index_id", "DESC")
+                                            ->first();
+
+            $index_id = 1;
+            if($field_with_greatest_index)
+                $index_id = $field_with_greatest_index->index_id + 1;
+
             $field_name=makecolumnname($req->field_name);
             $input=[
                 'field_name'=>$req->field_name,
                 'column_name'=>$field_name,
                 'field_tab'=>$req->field_tab,
+                'project_id'=> $project_id,
+                'index_id'=> $index_id,
                 'field_status'=>1,
                 'field_visible'=>1,
                 'field_permissions_caller_edit'=>1,
@@ -56,6 +68,7 @@ class FieldsController extends Controller
                 'field_data_lenght_min'=>100,
                 'field_data_lenght_mx'=>255
             ];
+
             $field=Fields::where('column_name', $field_name)->first();
             if($field!=null){
                 return redirect()->back()->with('error', 'This field already exist, a field can not be duplicated');
@@ -216,7 +229,7 @@ class FieldsController extends Controller
     {
         $get_field='';
         try {
-            $field=Fields::find($id);
+            $field=Fields::where("id",$id)->where("project_id", project_id())->first();
             $get_field=$field;
             $field_name=$field->column_name;
 
@@ -237,5 +250,30 @@ class FieldsController extends Controller
                 
             return redirect('fields')->with('error', 'Something went wrong with this error: '.$e->getMessage());            
         }
+    }
+
+    public function move($id, $direction){
+
+        $field = Fields::where("id",$id)->where("project_id", project_id())->first();
+        if($field){
+            if($direction == 1) //move up
+                $new_field = Fields::where("index_id", "<", $field->index_id)->where("id", "!=", $field->id)->where("field_tab", $field->field_tab)->orderBy("index_id", "DESC")->first();
+            else //move down
+                $new_field = Fields::where("index_id", ">", $field->index_id)->where("id", "!=", $field->id)->where("field_tab", $field->field_tab)->orderBy("index_id", "ASC")->first();
+
+            if($new_field){
+
+                $new_index = $new_field->index_id;
+                $current_index = $field->index_id;
+                
+                $new_field->index_id = $current_index;
+                $new_field->save();
+    
+                $field->index_id = $new_index;
+                $field->save();
+                return 1;
+            }
+        }
+        return 0;
     }
 }

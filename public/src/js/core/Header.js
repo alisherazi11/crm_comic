@@ -1,4 +1,5 @@
 const header = document.getElementById("header");
+if(header){
 header.innerHTML = `
 
 <nav
@@ -148,12 +149,15 @@ class="navbar py-0 px-sm-5 px-1 navbar-expand-lg navbar-light bg-white customeHe
 
 
 `;
+}
 
 const showelement = document.getElementById("showelement");
-showelement.addEventListener("click", () => {
-  localStorage.clear();
-  window.location.reload();
-});
+if(showelement){
+  showelement.addEventListener("click", () => {
+    localStorage.clear();
+    window.location.reload();
+  });
+}
 
 class Salutation extends HTMLElement {
   connectedCallback() {

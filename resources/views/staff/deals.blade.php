@@ -26,6 +26,7 @@
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Email (Click to Open)</th>
+                                <th>Collaborator</th>
                                 <th>Title</th>
                                 <th>Date</th>
                                 <th>Mobile Number</th>
@@ -38,6 +39,7 @@
                                 <td>{{ $item->first_name }}</td>
                                 <td>{{ $item->last_name }}</td>
                                 <td><a href="{{url('reqcontact/'.$item->id)}}">{{ $item->email }}</a></td>
+                                <td>{{ $item->collaborator ? ($item->collaborator->first_name ." ".$item->collaborator->last_name) : '' }}</td>
                                 <td>{{ $item->title }}</td>
                                 <td>
                                     <p>{{ date('d M', strtotime($item->created_at)) }}</p>
@@ -98,14 +100,12 @@
         </div>
     </div>
 
-
+<x-projectfooter/>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-
 <script>
     $(document).ready(function () {
         $(".display").DataTable();
     });
 </script>
-
 </body>
 </html>

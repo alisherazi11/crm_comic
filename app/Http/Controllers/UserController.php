@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -37,6 +39,24 @@ class UserController extends Controller
             'collaborator'=>1,
             'collaborator_status'=>$req->statuscollaborator_status
         ]);
+
+        if(isset($req->contact_id)){
+            $project_id = project_id();
+            $contact_id = $req->contact_id;
+            $collaborator_id = $req->user;
+            
+            $user = User::where("id", $collaborator_id)->first();
+            if($user){
+                $contact = Contact::where("id", $contact_id)->where("project_id", $project_id)->first();
+                if($contact){
+                    $contact->collaborator_id = $collaborator_id;
+                    $contact->save();
+                }
+            }
+        }
+        
+
+
 
         return redirect()->back()->with(['alert-type'=>'Success', 'message'=>'Collabrator Successfully added']);
     }

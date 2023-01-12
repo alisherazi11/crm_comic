@@ -206,6 +206,7 @@ Route::post('/update-order-routing',[DashboardController::class,'orderRouteUpdat
 Route::get('fields/duplicate/{id}', 'App\Http\Controllers\FieldsController@duplicate')->name('fields.duplicate')->middleware('auth');
 Route::resource('fields', 'App\Http\Controllers\FieldsController')->middleware('auth');
 Route::get('fields/delete/{id}', 'App\Http\Controllers\FieldsController@destroy')->middleware('auth');
+Route::get('fields-move/{id}/{direction}', 'App\Http\Controllers\FieldsController@move')->middleware('auth');
 
 //Contacts import
 
