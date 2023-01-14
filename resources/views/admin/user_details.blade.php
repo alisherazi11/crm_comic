@@ -5,28 +5,47 @@
         @section('title')
         My Project
         @endsection
+
+        <style>
+            #nav-home, #nav-profile, #nav-calendar {
+                padding-bottom: 15px !important;
+                border-radius: 10px !important;
+                border: 1px solid #fff !important;
+                background-color: white;
+            }
+        </style>
     </head>
     <body>
         <x-projectnavbar/>
         <div class="tableContainer">
             <nav>
                 <div class="nav nav-tabs projectTabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                    <a class="nav-item nav-link active Projecttabs" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
                         aria-controls="nav-home" aria-selected="true" onclick="activeUser1()" style="color: #000;">Active
                     Users</a>
+
                     <a class="nav-item nav-link Projecttabs" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
                     role="tab" onclick="activeUser2()" aria-controls="nav-profile" aria-selected="false">Inactive Users</a>
+
+                    <a class="nav-item nav-link Projecttabs" id="nav-calendar-tab" data-toggle="tab" href="#nav-calendar"
+                    role="tab" onclick="activeUser2()" aria-controls="nav-profile" aria-selected="false">Calendar</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div id='example_wrapper' class="tab-pane fade show active pt-2" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="tab-pane fade show active pt-2" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="actimeproject" style="border-radius: 0px !important;">
-                        <button data-toggle="modal" data-target="#addUserModal" class="btn btn-sm float-right mb-1"
+                        {{-- <button data-toggle="modal" data-target="#addUserModal" class="btn btn-sm float-right mb-1"
                         style="background-color:#2980B9; color:white;">Add User
-                        </button>
+                        </button> --}}
+                        <div class="my-2 mb-3 d-flex justify-content-end" style="font-size:30px;">
+                            <a data-toggle="modal" data-target="#addUserModal">
+                                <button class="addbtn">
+                                <i class="fa-solid fa-plus"></i> Add User
+                            </button></a>
+                        </div>
                         <div class="tableWrapper projectTable" style="height: fit-content !important;">
-                            <div class="table-content table-responsive">
-                                <table class="table table-borded table-bordered " id="table-list">
+                            <div class="table-content table-responsive" style='margin: auto;'>
+                                <table class="table table-borded table-bordered active-users table-hover" id="table-list">
                                     <thead class="table">
                                         <tr>
                                             <th></th>
@@ -42,7 +61,7 @@
                                             <th scope="col">Team</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    {{-- <tbody>
                                         @if($data->count())
                                         @foreach($data as $user)
                                         <tr>
@@ -51,7 +70,6 @@
                                                 data-id="{{ $user->id }}"
                                                 data-target="#exampleModalCenterdel" name="close-circle-outline">
                                                 </ion-icon>
-                                                <!-- <ion-icon class="closeicon" name="close-circle-outline"></ion-icon> -->
                                             </th>
                                             <td>
                                                 @if($user->status == 1)
@@ -119,20 +137,23 @@
                                             <td colspan="11">No Record Found</td>
                                         </tr>
                                         @endif
-                                    </tbody>
+                                    </tbody> --}}
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="tab-pane fade pt-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="actimeproject" style="border-radius: 0px !important;">
-                        <button data-toggle="modal" data-target="#addUserModal" class="btn btn-sm float-right mb-1"
-                        style="background-color:#2980B9; color:white;">Add User
-                        </button>
-                        <div class="tableWrapper projectTable">
-                            <div class="table-content table-responsive">
-                                <table class="table table-borded table-bordered " id="table-list">
+                        <div class="my-2 mb-3 d-flex justify-content-end" style="font-size:30px;">
+                            <a data-toggle="modal" data-target="#addUserModal">
+                                <button class="addbtn">
+                                <i class="fa-solid fa-plus"></i> Add User
+                            </button></a>
+                        </div>
+                        <div class="tableWrapper projectTable" style="height: fit-content !important;">
+                            <div class="table-content table-responsive" style='margin: auto;'>
+                                <table class="table table-borded table-bordered user-inactive table-hover" id="table-list">
                                     <thead class="table">
                                         <tr>
                                             <th></th>
@@ -149,7 +170,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($inactive->count())
+                                        {{-- @if($inactive->count())
                                         @foreach($inactive as $user)
                                         <tr>
                                             <th width="5%">
@@ -157,7 +178,6 @@
                                                 data-id="{{ $user->id }}"
                                                 data-target="#userDeleteModal" name="close-circle-outline">
                                                 </ion-icon>
-                                                <!-- <ion-icon class="closeicon" name="close-circle-outline"></ion-icon> -->
                                             </th>
                                             <td>
                                                 @if($user->status == 1)
@@ -240,13 +260,23 @@
                                         <tr>
                                             <td colspan="11">No Record Found</td>
                                         </tr>
-                                        @endif
+                                        @endif --}}
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="tab-pane fade pt-2" id="nav-calendar" role="tabpanel" aria-labelledby="nav-calendar-tab">
+                    <div class="actimeproject" style="border-radius: 0px !important; ">
+                        <div class="tableWrapper projectTable" style="max-height: 500px;">
+
+                        </div>
+                    </div>
+                </div>
+
+                
             </div>
         </div>
         <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog"
@@ -780,78 +810,215 @@
         <script>
         const activeUser = document.getElementById("ActiveUser")
         const activeUser1 = () => {
-        activeUser.innerHTML = "Active Users"
+            //activeUser.innerHTML = "Active Users"
         }
         const activeUser2 = () => {
-        activeUser.innerHTML = "In-Active Users"
+            //activeUser.innerHTML = "In-Active Users"
         }
-        $(".dropdowntitle").click(function (i) {
-        var thisEle = $(this).parent().find(".dropdowncontent");
-        var oriVisible = false;
-        if (thisEle.is(":visible")) {
-        oriVisible = true;
-        }
-        $(".dropdowncontent").hide();
-        $(".chevron-down-outline").show();
-        $(".chevron-up-outline").hide();
-        if (oriVisible) {
-        } else {
-        thisEle.show();
-        $(this).find(".chevron-down-outline").hide();
-        $(this).find(".chevron-up-outline").show();
-        }
+
+
+        $(".dropdowntitle").click(function(i) {
+            var thisEle = $(this).parent().find(".dropdowncontent");
+            var oriVisible = false;
+            if (thisEle.is(":visible")) {
+                oriVisible = true;
+            }
+            $(".dropdowncontent").hide();
+            $(".chevron-down-outline").show();
+            $(".chevron-up-outline").hide();
+            if (oriVisible) {} else {
+                thisEle.show();
+                $(this).find(".chevron-down-outline").hide();
+                $(this).find(".chevron-up-outline").show();
+            }
         });
-        $('.delete_user').click(function () {
-        var id = $(this).data('id');
-        $('#delete_id').val(id);
-        $("#userDeleteModal").modal('show');
+        $('.delete_user').click(function() {
+            var id = $(this).data('id');
+            $('#delete_id').val(id);
+            $("#userDeleteModal").modal('show');
         });
+
         function activeunchecked(id) {
-        $.ajax({
-        type: 'GET',
-        url: "useractive/" + id,
-        success: function (data) {
-        location.reload();
+            $.ajax({
+                type: 'GET',
+                url: "useractive/" + id,
+                success: function(data) {
+                    location.reload();
+                }
+            });
         }
-        });
-        }
+
         function editprofile(id) {
-        $.ajax({
-        type: 'GET',
-        url: "editprofile/" + id,
-        success: function (data) {
-        location.reload();
+            $.ajax({
+                type: 'GET',
+                url: "editprofile/" + id,
+                success: function(data) {
+                    location.reload();
+                }
+            });
         }
-        });
-        }
+
         function dialinfo(id) {
-        $.ajax({
-        type: 'GET',
-        url: "dialinfo/" + id,
-        success: function (data) {
-        location.reload();
+            $.ajax({
+                type: 'GET',
+                url: "dialinfo/" + id,
+                success: function(data) {
+                    location.reload();
+                }
+            });
         }
-        });
-        }
+
         function allowswitch(id) {
-        $.ajax({
-        type: 'GET',
-        url: "allowswitch/" + id,
-        success: function (data) {
-        location.reload();
+            $.ajax({
+                type: 'GET',
+                url: "allowswitch/" + id,
+                success: function(data) {
+                    location.reload();
+                }
+            });
         }
-        });
-        }
+
         function mystats(id) {
-        $.ajax({
-        type: 'GET',
-        url: "mystats/" + id,
-        success: function (data) {
-        location.reload();
-        }
-        });
+            $.ajax({
+                type: 'GET',
+                url: "mystats/" + id,
+                success: function(data) {
+                    location.reload();
+                }
+            });
         }
         </script>
+
+        <script>
+            var oTable;
+            $(function(){
+                
+                if ($('.active-users').length) {
+                    make_table();
+                    $('.active-users').on('draw.dt', function () {
+                        $('[data-toggle="tooltip"]').tooltip();
+                    });
+                }
+
+            });
+
+            function make_table(){
+                url = "{{ url('user') .'?status=1'}}";
+                if(oTable !== undefined){
+                    oTable.clear().destroy();
+                }
+
+                var table = $('.active-users');
+                oTable = table.DataTable({
+                    destroy: true,
+                    processing: true,
+                    serverSide: true,
+                    iDisplayLength: 25,
+                    ajax: {
+                        "url": url,
+                        "type": "GET",
+                    },
+                    columns: [
+                        {data: 'action', name: 'action'},
+                        {data: 'status_str', name: 'status'},
+                        {data: 'last_name', name: 'last_name'},
+                        {data: 'first_name', name: 'first_name'},
+                        {data: 'email', name: 'email'},
+                        {data: 'edit_profile_str', name: 'edit_profile'},
+                        {data: 'edit_dialing_info_str', name: 'edit_dialing_info'},
+                        {data: 'allow_switching_str', name: 'allow_switching'},
+                        {data: 'my_stats_page_str', name: 'my_stats_page'},
+                        {data: 'current_project', name: 'current_project'},
+                        {data: 'team', name: 'team'},
+                    ],
+                    fnDrawCallback: function (oSettings) { oTable.page(oSettings.page) },
+                    "columnDefs": [
+                        {
+                            "searchable":false,
+                            "targets":[0]
+                        },
+                        {
+                            "orderable":false,
+                            "targets":[0]
+                        }
+                    ],
+                    "order": [
+                        [1,'asc']
+                    ],
+                });
+
+            }
+
+        </script>
+
+
+        <script>
+            var oTableInactive;
+            if(oTableInactive !== undefined){
+                oTableInactive.clear().destroy();
+            }
+            $(function(){
+                
+                if ($('.user-inactive').length) {
+                    make_inactive_table();
+                    $('.user-inactive').on('draw.dt', function () {
+                        $('[data-toggle="tooltip"]').tooltip();
+                    });
+                }
+
+            });
+
+            function make_inactive_table(){
+
+                url = "{{ url('user') .'?status=0'}}";
+
+                var table = $('.user-inactive');
+                oTableInactive = table.DataTable({
+                    destroy: true,
+                    processing: true,
+                    serverSide: true,
+                    iDisplayLength: 25,
+                    ajax: {
+                        "url": url,
+                        "type": "GET",
+                    },
+                    columns: [
+                        {data: 'action', name: 'action'},
+                        {data: 'status_str', name: 'status'},
+                        {data: 'last_name', name: 'last_name'},
+                        {data: 'first_name', name: 'first_name'},
+                        {data: 'email', name: 'email'},
+                        {data: 'edit_profile_str', name: 'edit_profile'},
+                        {data: 'edit_dialing_info_str', name: 'edit_dialing_info'},
+                        {data: 'allow_switching_str', name: 'allow_switching'},
+                        {data: 'my_stats_page_str', name: 'my_stats_page'},
+                        {data: 'current_project', name: 'current_project'},
+                        {data: 'team', name: 'team'},
+                    ],
+                    fnDrawCallback: function (oSettings) { oTableInactive.page(oSettings.page) },
+                    "columnDefs": [
+                        {
+                            "searchable":false,
+                            "targets":[0]
+                        },
+                        {
+                            "orderable":false,
+                            "targets":[0]
+                        }
+                    ],
+                    "order": [
+                        [1,'asc']
+                    ],
+                });
+
+            }
+
+        </script>
+
+        
+
+
+
         <x-projectfooter/>
     </body>
 </html>

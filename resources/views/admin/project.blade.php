@@ -11,7 +11,7 @@
 {{-- @extends('admin.layouts.user') --}}
 
 {{-- @section('content') --}}
-    <div class="tableContainer pt-5" style="width:60%; margin-left:20%;  margin-left:20%;  margin-top:-20px;">
+    <div class="tableContainer pt-5" style="width:60%; margin-left:20%;  margin-left:20%;  margin-top:-20px; height: fit-content;">
         <div class="d-flex justify-content-between mb-4">
             <h3 id="Active" class="text-bold">Active Project</h3>
         </div>
@@ -34,7 +34,7 @@
                             Add Project
                         </button>
                     </div>
-                    <div class="tableWrapper projectTable" style="">
+                    <div class="tableWrapper projectTable" style="height: fit-content !important;">
                         <table id="example" class="display" style="width: 100%">
                             <thead>
                                 <tr class="tabelHeader">

@@ -164,15 +164,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id='',Request $request)
     {
-        // dd($request->delete_id);
+
+        if($request->ajax()){
+            $request["delete_id"] = $id;
+        }
+
         $user=User::find($request->delete_id);
          $notification=array(
             'alert-type'=>'success',
             'message'=>'User Deleted Successfully'
         );
         $user->delete();
+        if($request->ajax()){
+            return true;
+        }
+
         return redirect()->back()->with($notification);
     }
     public function mass_delete(Request $request)

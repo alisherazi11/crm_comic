@@ -27,17 +27,79 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $contacts=Contact::with('collaborator')->where("project_id", project_id())->get();
-        return view('staff.contact',compact('contacts'));
+        
+        if(!$request->ajax()){
+            // $contacts=Contact::with('collaborator')->where("project_id", project_id())->get();
+            return view('staff.contact');
+        }
+
+        $records = Contact::with('collaborator')->where("project_id", project_id())->get();
+        return \DataTables::of($records)
+            ->addColumn('collaborator', function ($records) {
+                return $records->collaborator ? ($records->collaborator->first_name ." ".$records->collaborator->last_name) : "";
+            })
+            ->addColumn('date', function ($records) {
+                return date("d M, Y", strtotime($records->created_at));
+            })
+            ->addColumn('action', function ($records) {
+
+                $table_name = "my-contacts";
+                $table_function = "make_table";
+                $delete_url =url('delete_contacts/' . $records->id);
+                $delete = "<ion-icon id='row$records->id' class='closeicon delete_user cursor-pointer'
+                onclick='delete_record(\"" . $delete_url . "\",  \"#row$records->id\",  \"".$table_name."\" ,\"".$table_function."\")' name='close-circle-outline'>
+                </ion-icon>";
+
+                $edit_url = url('edit-contact/' . $records->id);
+                $edit = "<a href='$edit_url'><ion-icon class='closeicon delete_user mr-2' name='create-outline'>
+                </ion-icon></a>";
+
+                return $edit. $delete;
+
+            })
+            ->rawColumns(['action','status_str','edit_profile_str','allow_switching_str','edit_dialing_info_str','my_stats_page_str'])
+            ->make(true);
     }
 
 
-    public function deals()
+    public function deals(Request $request)
     {
-        $contacts= Contact::with('collaborator')->where("project_id", project_id())->get();
-        return view('staff.deals',compact('contacts'));
+
+        if(!$request->ajax()){
+            // $contacts=Contact::with('collaborator')->where("project_id", project_id())->get();
+            return view('staff.deals');
+        }
+
+        $records = Contact::with('collaborator')->where("project_id", project_id())->get();
+        return \DataTables::of($records)
+            ->addColumn('collaborator', function ($records) {
+                return $records->collaborator ? ($records->collaborator->first_name ." ".$records->collaborator->last_name) : "";
+            })
+            ->addColumn('date', function ($records) {
+                return date("d M, Y", strtotime($records->created_at));
+            })
+            ->addColumn('action', function ($records) {
+
+                $table_name = "my-contacts";
+                $table_function = "make_table";
+                $delete_url =url('delete_contacts/' . $records->id);
+                $delete = "<ion-icon id='row$records->id' class='closeicon delete_user cursor-pointer'
+                onclick='delete_record(\"" . $delete_url . "\",  \"#row$records->id\",  \"".$table_name."\" ,\"".$table_function."\")' name='close-circle-outline'>
+                </ion-icon>";
+
+                $edit_url = url('edit-contact/' . $records->id);
+                $edit = "<a href='$edit_url'><ion-icon class='closeicon delete_user mr-2' name='create-outline'>
+                </ion-icon></a>";
+
+                $approve = "<a href='#'><ion-icon name='checkmark-circle-outline' class='closeicon mr-2'></ion-icon></a>";
+
+                return $approve. $edit. $delete;
+
+            })
+            ->rawColumns(['action','status_str','edit_profile_str','allow_switching_str','edit_dialing_info_str','my_stats_page_str'])
+            ->make(true);
     }
 
 

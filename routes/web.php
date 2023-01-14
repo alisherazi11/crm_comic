@@ -42,6 +42,7 @@ Route::get('/admin/view-user',[UserController::class,'show'])->middleware('auth'
 Route::get('/admin/edit-user',[UserController::class,'edit'])->middleware('auth');
 Route::PUT('/admin/update-user',[UserController::class,'update'])->middleware('auth');
 Route::DELETE('/admin/delete-user',[UserController::class,'destroy'])->middleware('auth');
+Route::get('/admin/delete-user/{user_id}',[UserController::class,'destroy'])->middleware('auth');
 Route::get('/admin/mass-user',[UserController::class,'mass_delete'])->middleware('auth');
 //Lists
 Route::get('/admin/lists',[ListController::class,'index'])->middleware('auth');

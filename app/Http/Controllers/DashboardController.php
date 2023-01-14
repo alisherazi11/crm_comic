@@ -24,6 +24,7 @@ use App\Models\Group;
 use App\Models\Compaign;
 use App\Models\Agent;
 use Illuminate\Support\Facades\DB;
+use DataTables;
 
 // use Illuminate\Support\Arr;
 
@@ -151,7 +152,7 @@ class DashboardController extends Controller
 
     public function reqcontact($id)
     {
-        session()->put('pid', $id);
+        //session()->put('pid', $id);
         $contact = User::find($id);
         if ($contact == '') {
             return redirect()->back();
@@ -162,7 +163,7 @@ class DashboardController extends Controller
         $activitydata = Activity::where('project_id', $id)->orderBy('created_at', 'DESC')->get();
         $resultcode = Rescultcode::where('project_id', $id)->take(8)->get();
         $script = script::where('project_id', $id)->get();
-        session('pid', $id);
+        //session('pid', $id);
         return view('staff.index', compact('contact', 'UserData', 'activitydata', 'resultcode', 'script', 'project'));
     }
 
@@ -306,12 +307,50 @@ class DashboardController extends Controller
         return $data;
     }
 
-    public function Userdetails()
+    public function Userdetails(Request $request)
     {
-        $data = User::where('role', '!=', 'admin')->get();
-        $project = Project::where('status', 1)->get();
-        $inactive = Project::where('status', 0)->get();
-        return view('admin.user_details', compact('data', 'project', 'inactive'));
+        if(!$request->ajax()){
+            $data = User::where('role', '!=', 'admin')->get();
+            $project = Project::where('status', 1)->get();
+            $inactive = Project::where('status', 0)->get();
+            return view('admin.user_details', compact('data', 'project', 'inactive'));
+        }
+
+        $status = $request->status ? ($request->status == 1 ? 1 : 0) : 0;
+        $records = User::where('role', '!=', 'admin')->where("status", $status)->get();
+        return DataTables::of($records)
+            ->addColumn('status_str', function ($records) {
+                return $records->status == 1 ? '<span class="text-success">True</span>' : '<span class="text-danger">False</span>';
+            })
+            ->addColumn('edit_profile_str', function ($records) {
+                return $records->edit_profile == 1 ? '<span class="text-success">True</span>' : '<span class="text-danger">False</span>';
+            })
+            ->addColumn('allow_switching_str', function ($records) {
+                return $records->allow_switching == 1 ? '<span class="text-success">True</span>' : '<span class="text-danger">False</span>';
+            })
+            ->addColumn('edit_dialing_info_str', function ($records) {
+                return $records->edit_dialing_info == 1 ? '<span class="text-success">True</span>' : '<span class="text-danger">False</span>';
+            })
+            ->addColumn('my_stats_page_str', function ($records) {
+                return $records->my_stats_page == 1 ? '<span class="text-success">True</span>' : '<span class="text-danger">False</span>';
+            })
+            ->addColumn('action', function ($records) {
+                $table_name = $records->status == 1 ? "active-users" : "user-inactive";
+                $table_function = $records->status == 1 ? "make_table" : "make_inactive_table";
+                $delete_url = url("admin/delete-user/" . $records->id);
+                $delete = "<ion-icon id='row$records->id' class='closeicon delete_user cursor-pointer'
+                onclick='delete_record(\"" . $delete_url . "\",  \"#row$records->id\",  \"".$table_name."\" ,\"".$table_function."\")' name='close-circle-outline'>
+                </ion-icon>";
+
+                $edit_url = url("admin/edit-user/" . $records->id);
+                $edit = "<a href='$edit_url'><ion-icon class='closeicon delete_user mr-2 ' name='create-outline'>
+                </ion-icon></a>";
+
+                return $edit. $delete;
+
+            })
+            ->rawColumns(['action','status_str','edit_profile_str','allow_switching_str','edit_dialing_info_str','my_stats_page_str'])
+            ->make(true);
     }
 
     public function newdashboard(Request $request)
