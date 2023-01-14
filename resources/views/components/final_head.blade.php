@@ -37,8 +37,7 @@
  <link rel="stylesheet" href="{{ asset('css/resultcode.css') }}" />
 
 
-
-
+<link rel="icon" href="{{asset("images/logo1.png")}}">
 
 
 
