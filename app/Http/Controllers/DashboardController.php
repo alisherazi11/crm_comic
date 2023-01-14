@@ -60,9 +60,9 @@ class DashboardController extends Controller
         $direction = Auth::user()->order_by_contact;
         if ($contactId) {
             session()->put('cid', $contactId);
-            $UserData = Contact::orderBy('id', $direction)->where('id', $contactId)->first();
+            $UserData = Contact::with("collaborator")->orderBy('id', $direction)->where('id', $contactId)->first();
         } else {
-            $UserData = Contact::orderBy('id', $direction)->where('project_id', $id)->first();
+            $UserData = Contact::with("collaborator")->orderBy('id', $direction)->where('project_id', $id)->first();
             // $UserData = Contact::orderBy('id', $direction)->where('project_id', $id)->inRandomOrder()->first();
         }
 
