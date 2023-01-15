@@ -38,7 +38,8 @@
                         style="background-color:#2980B9; color:white;">Add User
                         </button> --}}
                         <div class="my-2 mb-3 d-flex justify-content-end" style="font-size:30px;">
-                            <a data-toggle="modal" data-target="#addUserModal">
+                            {{-- <a data-toggle="modal" data-target="#addUserModal"> --}}
+                            <a href='{{url("create-user")}}'>
                                 <button class="addbtn">
                                 <i class="fa-solid fa-plus"></i> Add User
                             </button></a>

@@ -309,6 +309,7 @@ class DashboardController extends Controller
 
     public function Userdetails(Request $request)
     {
+
         if(!$request->ajax()){
             $data = User::where('role', '!=', 'admin')->get();
             $project = Project::where('status', 1)->get();
@@ -342,7 +343,7 @@ class DashboardController extends Controller
                 onclick='delete_record(\"" . $delete_url . "\",  \"#row$records->id\",  \"".$table_name."\" ,\"".$table_function."\")' name='close-circle-outline'>
                 </ion-icon>";
 
-                $edit_url = url("admin/edit-user/" . $records->id);
+                $edit_url = url("edit-user/" . $records->id);
                 $edit = "<a href='$edit_url'><ion-icon class='closeicon delete_user mr-2 ' name='create-outline'>
                 </ion-icon></a>";
 
@@ -352,6 +353,17 @@ class DashboardController extends Controller
             ->rawColumns(['action','status_str','edit_profile_str','allow_switching_str','edit_dialing_info_str','my_stats_page_str'])
             ->make(true);
     }
+
+    public function create(){
+        return view('admin.user.create');
+    }
+
+    public function edit($id){
+        $user = User::where("id", $id)->first();
+        return view('admin.user.edit', compact("user"));
+    }
+
+    
 
     public function newdashboard(Request $request)
     {

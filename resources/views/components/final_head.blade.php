@@ -157,4 +157,8 @@
         height: 60px;
     }
 
+    table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
+        text-align: center !important;
+    }
+
 </style>

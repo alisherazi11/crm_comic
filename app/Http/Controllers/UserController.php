@@ -67,27 +67,51 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id="")
     {
 
-        $validateData=$request->validate([
-        'first_name'=>'required',
-        'last_name'=>'required',
-        'email'=>'required|unique:users',
-        'role'=>'',
-        'password'=>'required|min:6',
+        $validateData = $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'username' => 'required|unique:users',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|min:6',
+            'pre_dial'=>'nullable',
+            'local_area_code'=>'nullable',
+            'time_zone'=>'required',
+            'status'=>'required|min:0|max:1',
 
+            'role'=>'nullable',
+
+            'user_type'=>'required|min:1|max:3',
+            'auto_dialing'=>'nullable',
+            'with_call_recording'=>'nullable',
+
+            'add_voip_line_to_user'=>'nullable|min:1|max:3'
         ]);
 
-        $validateData['password']=Hash::make($request->password);
-        $validateData['role']='user';
+        $validateData['password'] = Hash::make($request->password);
+        $validateData['role'] = 'user';
+        $validateData['auto_dialing'] = isset($request["auto_dialing"]) ? 1 : 0;
+        $validateData['with_call_recording'] = isset($request["with_call_recording"]) ? 1 : 0;
+        
 
-        $user=User::create($validateData);
-        $notification=array(
-            'alert-type'=>'success',
-            'message'=>'User Added Successfully'
-        );
-        return redirect()->back()->with($notification);
+        if($id){
+            User::where("id", $id)->update($validateData);
+            $notification=array(
+                'alert-type'=>'success',
+                'message'=>'User updated successfully'
+            );
+        }
+        else{
+            User::create($validateData);
+            $notification=array(
+                'alert-type'=>'success',
+                'message'=>'User added successfully'
+            );
+        }
+
+        return redirect("user")->with($notification);
 
     }
 

@@ -182,7 +182,10 @@ Route::get('/clear',function(){
 });
 
 Route::get('/user',[DashboardController::class,'Userdetails'])->middleware('auth');
+Route::get('/create-user',[DashboardController::class,'create'])->middleware('auth');
 Route::post('/add-user',[UserController::class,'store'])->middleware('auth');
+Route::get('/edit-user/{id}',[DashboardController::class,'edit'])->middleware('auth');
+Route::post('/update-user/{id}',[UserController::class,'store'])->middleware('auth');
 
 // User Active
 Route::get('/useractive/{id}',[UserController::class,'checkeduser'])->middleware('auth');
