@@ -58,11 +58,32 @@ class DashboardController extends Controller
         $project = Project::find($id);
         $contact = User::find($project->user_id);
         $direction = Auth::user()->order_by_contact;
+
+        //All contacts on which result code has been applied;
+        $code_applied_on = Activity::where("project_id", $id)
+                                    ->whereNotNull("result_code_id"
+                                    )->pluck("contact_id")
+                                    ->toArray();
+
         if ($contactId) {
-            session()->put('cid', $contactId);
-            $UserData = Contact::with("collaborator")->orderBy('id', $direction)->where('id', $contactId)->first();
+            //session()->put('cid', $contactId);
+            //All contacts on which result code has been applied;
+            
+
+            $UserData = Contact::with("collaborator")
+                                // ->where('id', $contactId)
+                                ->whereNotIn("id", $code_applied_on)
+                                ->where('project_id', $id)
+                                ->orderBy('id', $direction)
+                                ->first();
         } else {
-            $UserData = Contact::with("collaborator")->orderBy('id', $direction)->where('project_id', $id)->first();
+
+            $UserData = Contact::with("collaborator")
+                                ->whereNotIn("id", $code_applied_on)
+                                ->where('project_id', $id)
+                                ->orderBy('id', $direction)
+                                ->first();
+
             // $UserData = Contact::orderBy('id', $direction)->where('project_id', $id)->inRandomOrder()->first();
         }
 

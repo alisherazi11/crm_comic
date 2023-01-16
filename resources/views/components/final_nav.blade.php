@@ -49,7 +49,7 @@
                     <div class="col-sm-2 mt-2">
                         {{-- @if(Session::has('pid') && Route::current()->getName() != 'project') --}}
                         @if(Session::has('pid'))
-                        <a style="color:black; {{(request()->is('dashboard')) ? 'background-color: #2980B9; color:white; padding-right: 20px; border-radius:10px;' : ''}}" href="{{url('deals')}}">Deals</a>
+                        <a style="color:black; {{(request()->is('deals')) ? 'background-color: #2980B9; color:white; padding-right: 20px; border-radius:10px;' : ''}}" href="{{url('deals')}}">Deals</a>
                         @endif
                     </div>
 
@@ -95,14 +95,14 @@
             </a>
             </button>
             <!-- <div
-                                    class="dropdown-menu"
-                                    id="drop"
-                                    aria-labelledby="dropdownMenuButton"
-                                    >
-                                    <a class="dropdown-item" href="/admin">Admin</a>
-                                    <a class="dropdown-item" href="/admin/profile">Profile </a>
-                                    <a class="dropdown-item" href="/logout">Logout</a>
-                                </div> -->
+                class="dropdown-menu"
+                id="drop"
+                aria-labelledby="dropdownMenuButton"
+                >
+                <a class="dropdown-item" href="/admin">Admin</a>
+                <a class="dropdown-item" href="/admin/profile">Profile </a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+            </div> -->
         </div>
     </div>
     </div>

@@ -949,7 +949,7 @@ Dashboard
                                                     <div id="collapseEighttwo" class="collapse show"
                                                         aria-labelledby="headingEight" data-parent="#accordiontwo">
                                                         <div class="card-body collapsCardBody">
-                                                            @if($UserData->collaborator)
+                                                            @if(@$UserData->collaborator)
                                                                 <p class="text" style="color: black;">{{@$UserData->collaborator->first_name." ".@$UserData->collaborator->last_name}}</p>
                                                             @else
                                                                 <p class="text">No Collaborator</p>
