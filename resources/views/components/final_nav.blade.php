@@ -46,10 +46,10 @@
             <div class="dropdown userdropdown">
 
                 <div class="row">
-                    <div class="col-sm-2 mt-2">
+                    <div class="col-sm-2 mt-2" style='{{request()->is('deals') ? "margin-right:14px;" : ""}}'>
                         {{-- @if(Session::has('pid') && Route::current()->getName() != 'project') --}}
                         @if(Session::has('pid'))
-                        <a style="color:black; margin-right:20px; {{(request()->is('deals')) ? 'background-color: #2980B9; color:white; padding: 10px; border-radius:10px;' : ''}}" href="{{url('deals')}}"><span class="menu-title"><span class="menu-title">Deals</span></a>
+                        <a style="color:black; {{(request()->is('deals')) ? 'background-color: #2980B9; color:white; padding: 10px; border-radius:10px;' : 'margin-right:20px;'}}" href="{{url('deals')}}"><span class="menu-title"><span class="menu-title">Deals</span></a>
                         @endif
                     </div>
 
@@ -59,7 +59,7 @@
                         @php 
                             $caller_check = "dashboard/".Session::get('pid');
                         @endphp
-                        <a style="color:black; margin-left:25px; {{request()->is($caller_check) ? 'margin-left:10px; background-color: #2980B9; color:white; padding: 10px; border-radius:10px;' : ''}}" href="/dashboard/{{Session::get('pid')}}"><span class="menu-title"><span class="menu-title">Caller</span></a>
+                        <a style="color:black; {{request()->is($caller_check) ? 'margin-left:10px; background-color: #2980B9; color:white; padding: 10px; border-radius:10px;' : 'margin-left:20px;'}}" href="/dashboard/{{Session::get('pid')}}"><span class="menu-title"><span class="menu-title">Caller</span></a>
                         @endif
                     </div>
                     <div class="col-sm-1 adminlistnav" style="margin-left:30px; margin-right: -60px; margin-top: 2.9px">

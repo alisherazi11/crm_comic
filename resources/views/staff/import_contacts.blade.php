@@ -32,5 +32,6 @@
                 </div>
             </div>
         </div>
+        <x-projectfooter/>
     </body>
 </html>

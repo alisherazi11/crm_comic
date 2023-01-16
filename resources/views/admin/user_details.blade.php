@@ -1015,11 +1015,6 @@
             }
 
         </script>
-
-        
-
-
-
         <x-projectfooter/>
     </body>
 </html>
