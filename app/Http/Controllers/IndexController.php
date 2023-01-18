@@ -14,9 +14,11 @@ class IndexController extends Controller
     }
     public function signin(Request $request)
     {
+
+        Session::flush();
        $validateData=$request->validate([
-       'email'=>"required",
-       'password'=>'required'
+        'email'=>"required",
+        'password'=>'required'
        ]);
        if(Auth::attempt($validateData))
        {
