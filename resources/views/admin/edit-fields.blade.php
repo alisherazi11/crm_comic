@@ -36,7 +36,7 @@
 
     </style>
     @section('title')
-    Fields
+    Custom Fields
     @endsection
 </head>
 <body>
@@ -44,7 +44,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Fields</h3>
+                <h3>Custom Fields</h3>
             </div>
             @if(Session::has('error'))
             <div class="alert alert-danger m-2">{{Session::get('error')}}</div>
@@ -173,8 +173,8 @@
 
                             <div class="col-md-4 mb-3"><label for="">Data Length</label></div>
                             <div class="col-md-8 mb-3">
-                                Min <input type="number" name="field_data_lenght_min" id='field_data_lenght_min' value="{{@$get_field->field_data_lenght_min}}" class="w-25">
-                                Max <input type="number" name="field_data_lenght_mx" id='field_data_lenght_mx' value="{{@$get_field->field_data_lenght_min}}" class="w-25"> character
+                                Min <input type="number" name="field_data_lenght_min" id='field_data_lenght_min' value="{{@$get_field->field_data_lenght_min}}" class="w-25" style='width: 60px !important; height: 21px !important;'>
+                                Max <input type="number" name="field_data_lenght_mx" id='field_data_lenght_mx' value="{{@$get_field->field_data_lenght_min}}" class="w-25" style='width: 60px !important; height: 21px !important;'> character
                             </div>
                         </div>
 

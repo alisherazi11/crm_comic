@@ -83,7 +83,7 @@
                                         </a>
                                         <a class="dropdown-item menuitem" href="{{url('fields')}}">
                                             <img src="{{asset('images/graysettings.png')}}" alt=""><span class="menu-title">
-                                                <span class="menu-title">Fields</span>
+                                                <span class="menu-title">Custom Fields</span>
                                         </a>
                                     </div>
                                 </li>

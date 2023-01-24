@@ -21,7 +21,7 @@ function makecolumnname($string) {
 
 function getfields()
 {
-    return Fields::all();
+    return Fields::where("project_id", project_id())->get();
 }
 
 function users()

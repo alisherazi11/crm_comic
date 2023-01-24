@@ -648,6 +648,6 @@
                 </div>
             </div>
         </div>
-        <!-- Modal -->
+        @include('components.final_footer')
     </body>
 </html>

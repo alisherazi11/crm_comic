@@ -681,6 +681,6 @@
                             </div>
 
         </div>
-
+        @include('components.final_footer')
 </body>
 </html>
